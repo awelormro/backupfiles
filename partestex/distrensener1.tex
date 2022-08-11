@@ -1,0 +1,111 @@
+\begin{figure}[H]
+    \centering
+    \footnotesize
+    \begin{tikzpicture}   
+        % \pie[hide number, rotate=270, text=legend, color={blue!30, red!40, orange!70}]  
+        \pie[hide number, rotate=270, text=legend]  
+        \pie[]
+        {39.2/Ciclo Combinado, 2.6/Cogeneración eficiente, 1.8/Nucleoeléctrica, 0.5/Bioenergía,7.99/Fotovoltaica,8.6/Eoloeléctrica,1.1/Geotermoeléctrica,6.1/Carboeléctrica,0.8/Combustión interna, 13.2/Térmica Convencional,14.1/Hidráulica convencional,4/Turbogás,0.01/Combustión interna}  
+    \end{tikzpicture}  
+    \caption{Distribución de la energía por forma de producción. \\ Tomado de SENER y CENACE (\citeyear{prodesen}).}
+    \label{fig:piechart1}
+\end{figure}
+
+\pagebreak
+
+\def\trunc#1.#2\relax{#1}
+\newcommand{\slice}[6]{
+        \pgfmathparse{0.5*#2+0.5*#3}
+        \let\midangle\pgfmathresult
+
+        % slice
+        \draw[thick,fill=#1] (0,0) -- (#2:1) arc (#2:#3:1) -- cycle;
+
+        % outer label
+        \node[label=\midangle:#5] at (\midangle:1#6) {};
+
+        % inner label
+        \pgfmathparse{min((#3-#2-10)/110*(-0.3),0)}
+        \let\temp\pgfmathresult
+        \pgfmathparse{max(\temp,-0.5) + 0.8}
+        \let\innerpos\pgfmathresult
+        \node at (\midangle:\innerpos) {#4};
+    }
+    \begin{figure} [!htbp]
+    \begin{center}
+        \begin{tikzpicture}[scale=3]
+
+        \newcounter{c}
+        \newcounter{d}
+        \foreach \p/\d/\cc in {
+          13.52//cyan!90, 
+          1.19/-.04/green!70, 
+          3.58/.03/blue!40, % PCT/OUTER LABEL DECIMAL SHIFT/COLOR
+          81.7//magenta!90}
+        {
+            \setcounter{a}{\theb}
+            \pgfmathparse{int(100*\p)}
+            \addtocounter{b}{\pgfmathresult}
+            \slice{\cc}{\thea/10000*360}
+            {\theb/10000*360}
+            {\ifnum\expandafter\trunc\p\relax>3\relax\p\%\fi}% <- CUTOFF OF 3%
+            {\ifnum\expandafter\trunc\p\relax>3\relax\else\p\%\fi}
+            {\d}
+        }
+
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{My pie}
+\end{figure}
+
+% \begin{center}
+% \begin{tikzpicture}
+
+% \begin{scope}
+%   \draw (0,2)--(0,-2);
+%   \draw (-2,0)--(2,0);
+%   \newdimen\R
+%   \R=1.5cm
+%      \draw (36:\R)
+%      \foreach \x in {36,108,180,252,324} {  -- (\x:\R) }
+%    -- cycle (36:\R) node[right] {4}
+%   -- cycle (108:\R) node[above] {5}
+%    -- cycle (180:\R) node[below] {1}
+%   -- cycle  (252:\R) node[below] {2}           -- cycle  (324:\R) node[right] {3};
+% \end{scope}
+
+% \begin{scope}[xshift=6cm]
+%   \draw (0,2)--(0,-2);
+%   \draw (-2,0)--(2,0);
+%   \newdimen\R
+%   \R=1.5cm
+%      \draw (36:\R)
+%      \foreach \x in {36,108,180,252,324} {  -- (\x:\R) }
+%    -- cycle (36:\R) node[right] {3}
+%   -- cycle (108:\R) node[above] {4}
+%    -- cycle (180:\R) node[below] {5}
+%   -- cycle  (252:\R) node[below] {1}           -- cycle  (324:\R) node[right] {2};
+% \end{scope}
+
+% \draw[Stealth](2.3,0) --(1,0); 
+% % \draw[red,<->] (2.3,0) -- (3.8,0);
+
+% \end{tikzpicture}
+% \end{center}
+% \end{document}
+
+
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}   
+  
+\pie[square, rotate=270, text=inside, color={blue!40, red!30, orange!50}]  
+ {46/Rice,  
+     32/Wheat, 22/Other}  
+   
+\end{tikzpicture}
+
+    \caption{Título genérico promedio para el humano consciente lol}
+    \label{fig:cosagenérica}
+\end{figure}

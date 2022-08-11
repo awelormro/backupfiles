@@ -1,0 +1,127 @@
+\pagebreak
+% \chapter{Marco Teórico}%
+% \label{cha:Marco Teórico}
+
+
+\makeatletter
+\let\savedchap\@makechapterhead
+\def\@makechapterhead{\vspace*{-3cm}\savedchap}
+\chapter{Marco Teórico}
+\let\@makechapterhead\savedchap
+\makeatletter
+
+\vspace{-36pt}
+
+El siguiente capítulo abordará el concepto principal en el cual se basó el planteamiento del problema, el Ciclo Rankine, se analizarán sus componentes, cómo hacerlo más eficiente, sus variantes y limitantes acorde a lo indicado por la segunda ley de la termodinámica.
+
+\vspace{-32pt}
+
+\section{Ciclo Rankine}
+
+\vspace{-12pt}
+
+El ciclo Rankine es el objeto de estudio que se pretende abordar mediante la simulación en Python, por lo que es pertinente definirlo. \textcite{ccengel2006termodinamica} maneja el concepto de un ciclo Rankine como: ``el ciclo ideal para las centrales de vapor'', siguiendo los siguientes procesos:
+
+\begin{itemize}
+    \item Paso 1-2: Compresión isentrópica mediante una bomba.
+    \item Paso 2-3: Entrada de calor a \( P_{constante} \) con una caldera.
+    \item Paso 3-4: Expansión isentrópica en una turbina.
+    \item Paso 4-1: Salida de calor a \( P_{constante} \) 
+\end{itemize}
+
+Como se puede observa en la figura ~\ref{fig:diaciclorank1},  la notación empieza en el punto de menor presión, que es la salida del condensador, como lo explica \textcite{burghardt1984ingenieria}, al momento de regresar el agua a un estado líquido, ésta disipa toda la energía que puede contener, y bajo ésta premisa, se tomó como el punto de inicio en el resto de ciclos que se analizaron en el presente trabajo. El proceso descrito anteriormente representa la forma ideal del ciclo Rankine, tomando en cuenta las siguientes consideraciones:
+
+\begin{itemize}
+    \item No hay pérdidas de \( P \) por la fricción generada.
+    \item \( P \) constante desde la salida de un dispositivo hasta la entrada del otro.
+    \item No existirán irreversibilidades durante los procesos.
+    \item No habrá transferencia de \( Q \) con el entorno.
+    \item Los procesos en la bomba y la turbina serán isentrópicos.
+\end{itemize}
+
+
+\input{partestex/diaciclorankine1.tex}
+
+Lo previamente discutido muestra que existen varias maneras de representar el ciclo Rankine estándar ideal, la siguiente sección describe la manera en que se ha tratado de mejorar su rendimiento mediante diferentes mecanismos y procesos.
+
+
+% \section{Irrerversibilidades del ciclo Rankine}
+% \textcite{}
+
+
+
+\section{Mejoras del ciclo Rankine}
+
+\subsection{Aumento de presión en la caldera}
+
+\textcite{shapirotermo} explican que una de las principales maneras de mejorar la eficiencia del ciclo es usando vapor sobrecalentado, medida que es mayoritariamente usada por los diseñadores de calderas para evitar utilizar equipamiento adicional.
+
+\subsection{Reducción de presión en el condensador} % (fold)
+\label{sub:Reducción condensador}
+
+Una de las maneras en que se pretende reducir las pérdidas de exergía, es usando $P$ por debajo del nivel atmosférico a la salida del condensador, \textcite{rajput2009engineering} aprovechando la mayor cantidad de energía que se disipa en ése proceso mediante equipos de bombeo, que al momento de presurizar, requieren menor cantidad de energía que el usar un medio de entrada de calor.
+% subsection subsection name (end)
+
+\subsection{Ciclo Rankine con recalentamiento}
+
+\textcite{ccengel2006termodinamica} analizan el uso de un segundo paso por la caldera para recalentar el vapor desde una turbina de alta presión para poder introducirlo en una segunda turbina, generando dos entradas de calor mediante un solo dispositivo,, y dando dos trabajos de salida, describiéndose mediante las siguientes ecuaciones:
+
+\begin{equation}
+  q_{entrada}-q_{primario}+q_{recalentamiento}=(h_3-h_2)+(h_5-h_4)
+  \label{eq:qrecal}
+\end{equation}
+
+\begin{equation}
+  w_{turbina,\,salida}=w_{turbina,\,I}+w_{turbina,\,II}=(h_3-h_4)+(h_5-h_6)
+  \label{eq:wrecal}
+\end{equation}
+
+El diagrama de la figura~\ref{fig:ciclorecalrankine} muestra que se requiere que la presión de entrada al paso por el sistema de recalentamiento es menor que al que se da en su primer paso por la caldera, para aprovechar el calor residual que se usa mediante las cámaras de recalentamiento en las calderas (\cite{burghardt1984ingenieria}).
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{rankinerecal.png}
+  \end{center}
+  \caption{Esquema de proceso y diagrama $T-s$ de un ciclo Rankine con recalentamiento. \\Tomado de \textcite{ccengel2006termodinamica}}
+  \label{fig:ciclorecalrankine}
+\end{figure}
+
+\subsection{Ciclo Rankine con regeneración}
+
+Otra de las técnicas para mejorar la eficiencia del ciclo Rankine es el uso de sistemas de regeneración. \textcite{rajput2009engineering} clasifica como sistemas de regeneración las extracciones de vapor en diferentes puntos de la turbina (donde por la conversión de trabajo que han desarrollado, la presión en dichos puntos es menor a la entrada), llamando ésta variante como ciclo Rankine con regeneración o Ciclo Rankine regenerativo, el cual se puede obtener mediante dos tipos de calentadores:
+
+\begin{itemize}
+  \item Calentadores cerrados: Son intercambiadores de calor que no mezclan el vapor extraído de la turbina con el agua que se pretende calentar como se ve en la figura~\ref{fig:rankinecerr}. Al ser de contacto indirecto, se puede regular de mejor manera el flujo de calor y evitar problemas de choques térmicos y golpe de ariete, teniendo el inconveniente de necesitar una mayor cantidad de vapor para pasar la misma cantidad de energía que su contraparte, los calentadores abiertos.
+    \begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{rankinecalcerr.png}
+  \end{center}
+  \caption{Esquema de proceso y diagrama $T-s$ de un Ciclo Rankine regenerativo mediante un sistema de calentador cerrado. \\Tomado de \textcite{ccengel2006termodinamica}}
+  \label{fig:rankinecerr}
+\end{figure}
+% \vspace{12pt}
+\pagebreak
+  \item Calentadores abiertos: Son cámaras de mezclado donde se junta el vapor extraído con el agua para que se tenga un contacto directo entre ellas. Aunque una mayor cantidad de vapor es traspasada al agua, se requiere tener un mejor monitoreo, al ser más susceptibles al choque térmico, que puede destruir la instalación térmica. Su esquema se ve en la figura~\ref{fig:rankineregcalab}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{rankineregcalab.png}
+  \end{center}
+  \caption{Esquema de proceso y diagrama $T-s$ de un ciclo Rankine regenerativo con calentador abierto. \\ Tomado de \textcite{ccengel2006termodinamica}.}
+  \label{fig:rankineregcalab}
+\end{figure}
+\end{itemize}
+
+\subsection{Ciclo Rankine con recalentamiento y regeneración}
+
+La sección anterior se concentró en explicar las principales maneras de mejorar el ciclo Rankine, como explica \textcite{burghardt1984ingenieria}, el juntar un sistema de recalentamiento y regeneración la manera más eficiente de trabajar un ciclo Rankine, al combinar los sistemas de calentamiento indirecto para aumentar la temperatura del agua de entrada a la turbina mediante sistemas de calentamiento, además de incluir un recalentador que permite aprovechar la energía disponible en la caldera mediante otro paso de vapor, siendo representado en la figura~\ref{fig:recalreg}.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{rankinerecalregen.png}
+  \end{center}
+  \caption{Esquema de proceso y diagrama $T-s$ de un ciclo Rankine regenerativo con recalentamiento. \\Tomado de \textcite{ccengel2006termodinamica}.}
+  \label{fig:recalreg}
+\end{figure}
+
+\pagebreak

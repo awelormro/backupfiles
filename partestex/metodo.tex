@@ -1,0 +1,94 @@
+\pagebreak
+\makeatletter
+\let\savedchap\@makechapterhead
+\def\@makechapterhead{\vspace*{-2.54cm}\savedchap}
+\chapter{\vspace{-1cm}Metodología}
+\let\@makechapterhead\savedchap
+\makeatletter
+
+
+% \vspace{-35pt}
+% \chapter{Metodología}
+
+En el presente capítulo se muestra la metodología seguida durante el desarrollo del presente trabajo descrito en la figura~\ref{fig:dia2}Con la revisión del estado del arte se obtuvieron marcos metodológicos que serán utilizados como referencia para el marco metodológico seguido en el presente trabajo. 
+
+\input{partestex/diamet.tex}
+
+El marco metodológico seguido para el desarrollo del trabajo fue el siguiente: 
+
+\begin{enumerate}
+    \item Búsqueda documental: Se revisaron las tendencias actuales con respecto a la simulación de ciclos Rankine, además de los conceptos importantes para el desarrollo del marco teórico y las herramientas estadísticas para analizar los resultados obtenidos.
+    \item Selección de variables y estados termodinámicos: Se seleccionaron los elementos mostrados en la tabla~\ref{tab:tabpares} para utilizarse como variables de entrada por cada estado termodinámico, que para los 4 tipos de Ciclo Rankine seleccionados se utilizaron 4, 7, 9 y 13 ET, con las unidades que se muestran en la tabla~\ref{tab:tablunidades}
+
+\begin{table}[H]
+    \centering
+    \caption{Pares de variables seleccionables para las simulaciones.}
+    \label{tab:tabpares}
+
+    \begin{tabular}{cc}
+        \hline
+        Variable principal & Variable secundaria disponible \\
+        \hline
+        $T$ & $P,h,s,x$ \\
+        $P$ & $T,h,s,x$ \\
+        $h$ & $s$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+    \item Generación de algoritmos: Se utilizaron algoritmos analíticos no recursivos para simulación de los ciclos Rankine descritos en el punto anterior.
+    \item Programación de algoritmos: Se programaron los algoritmos utilizando Python 3.9 con uso de las librerías IAPWS para obtener las propiedades termodinámicas de cada ET, numpy y scipy para apoyo en los cálculos. Además de incluir las unidades del SI ($K,MPa, \frac{kJ}{kg},\frac{kJ}{kg K}$), se incluye el soporte de diferentes unidades para cada tipo de propiedad, quedando distribuidos de la siguiente manera:
+
+\begin{table}[H]
+    \centering
+    \caption{Unidades soportadas para cada magnitud}
+    \label{tab:tablunidades}
+
+    \begin{tabular}{cc}
+        \hline
+        Propiedad & Unidades soportadas \\
+        \hline
+        $T$ & °C, °F, K, R \\
+        $P$ & kPa, MPa, bar, psig, psia, $\frac{kg}{cm^{2}}$, mmHg, $mmH_{2}O$ \\
+        $h, PC$ & $\frac{kJ}{kg}, \frac{J}{g}, \frac{MJ}{kg}  \frac{kWh}{kg} \frac{kcal}{kg}, \frac{kcal}{g}, \frac{cal}{g}, \frac{MBTU}{lb}, \frac{MMBTU}{lb}, \frac{BTU}{lb} $ \\
+        $s$ &  $\frac{kJ}{kg ^{o}C}, \frac{kJ}{kg K}, \frac{BTU}{lb ^{o}F}, \frac{cal}{g ^{o}C}, \frac{cal}{kg ^{o}K}, $ \\
+        % , J/g, MJ/kg, kWh/kg, kcal/kg, kcal/g, cal/g, MBTU/lb, MMBTU/lb \\
+        $x$ & $\%,$ número decimal \\
+        \hline
+    \end{tabular}
+\end{table}
+    \item Desarrollo de interfaz gráfica: Se programó una interfaz gráfica para el uso del software utilizando la librería Tkinter.
+    \item Desarrollo de plantilla de reportes técnicos: Se generaron plantillas de salida para los datos obtenidos en tres formatos, docx, xlsx y pdf, utilizando python-docx, openpyxl y reportlab para el desarrollo de cada uno.
+    \item Desarrollo de pruebas: Se realizaron simulaciones con los datos de entrada a partir de reportes técnicos de plantas ya instaladas, ejercicios teóricos obtenidos de \textcite{ccengel2006termodinamica}, \textcite{burghardt1984ingenieria} y \textcite{rajput2009engineering}, realizando validaciones mediante error relativo menor al 5\%, en los casos que no se pudieron validar todos los ejemplos, se regresó al punto 3 para corroborar los algoritmos.
+    \item Análisis estadístico: Se analizaron las variables mediante tablas ANOVA para ver su relación con la obtención de resultados finales, desviación estándar $e_{relativo},\, e_{absoluto}$ y tablas ANOVA para validar los resultados obtenidos de las simulaciones de prueba en el punto 7.
+    \item Discusión de resultados: Se realizó la discusión de resultados obtenidos en el presente trabajo, validando la hipótesis planteada.
+    \item Conclusiones: Se describieron las conclusiones obtenidas en el presente trabajo.
+\end{enumerate}
+
+
+% Se realizó una búsqueda documental para el estudio de las tendencias actuales dentro de la simulación de ciclos Rankine, las fuentes de calor utilizadas, los modelos matemáticos utilizados, los resultados entregados por cada simulación realizada, además del formato de presentación de resultados, si era mediante gráficas, documentos de texto ú hoja de cálculo.
+
+% De acuerdo a lo mostrado por \textcite{PETROLLESE2020113307}, los métodos iterativos requieren un mayor poder computacional y tiempo de ejecución en función a la exactitud de sus resultados, por lo que se eligieron modelos analíticos para el cálculo de ciclos Rankine para el desarrollo del presente trabajo, debido a su menor necesidad de tiempo de ejecución y recursos computacionales, lo que permitiría el aprovechamiento de equipos computacionales más rezagados, microcomputadoras y sistemas ARM.
+
+% Asimismo, se eligió python como plataforma de desarrollo dada su vasta documentación y al ser un software de código abierto, contrario a MATLAB, la plataforma más popular para desarrollo de simulaciones numéricas no se tiene la necesidad de pago de licencias para  su desarrollo y ejecución, además de poder desarrollarse y compilarse en diferentes editores de código y entornos de desarrollo, tales como Visual Studio Code, vim, Pycharm entre otros.
+
+% A partir del estudio previo de variables de entrada y estados termodinámicos a utilizar junto a datos adicionales que son de utilidad para el cálculo de ciclos Rankine, tales como eficiencias isentrópicas, poder calorífico del combustible, precios unitarios de materiales, logística, y mano de obra, factores de emisión de $CO_{2}$ similar a lo realizado por \textcite{SULAIMANALSAGRI2020113435} y \textcite{NI20171274}. Basado en lo descrito por \textcite{valverdedesenvolvimento} y \textcite{jimenez2021simulacion} en el uso de métodos analíticos se requieren dos datos numéricos de entrada para el cálculo de cada estado termodinámico, el tipo de dato que es, refiriéndose a la combinación de presión y temperatura o presión y entalpía, el presente trabajo pretende utilizar las siguientes parejas de datos como variables de entrada: 
+
+
+
+
+
+
+% Con lo mencionado antes, se generaron algoritmos para el cálculo de los cuatro tipos de ciclos Rankine de tipo: a).- estándar, b).- con recalentamiento, c).- con regeneración y d).- con recalentamiento y regeneración, usando los estados termodinámicos de entrada y salida como lo mostrado por \textcite{NI20171274} y \textcite{EPPINGER2021116650}, excluyendo los procesos internos que ocurren dentro de cada dispositivo para evitar tener discrepancias dadas las condiciones de diseño que los equipos seleccionados, generando sistemas de 4, 9, 11 y 15 estados termodinámicos a elegir para el desarrollo del modelo.
+
+% Con los algoritmos de cálculo desarrollados se procedió a programarlos en python con apoyo de las librerías numpy y scipy, bibliotecas útiles para el desarrollo de cálculos, después se procedió a la generación de formatos de reportes técnicos para los formatos de salida de Microsoft Office Word con la biblioteca docx, Excel con openpyxl y pdf con reportlab, mostrando una característica ausente dentro de la revisión del estado del arte.
+
+% En los casos que no se generó un resultado acorde a lo esperado validando los resultados de las simulaciones al comparar con estudios de caso de plantas ya instaladas, ejercicios de la literatura seleccionada, se replantearon los algoritmos y se procedió a reprograrmarlos para ajustar tanto los algoritmos como los sistemas de conversión de unidades, para volver a probar el código y verificar dichos resultados mediante $e_{relativo}$.
+
+Después se validaron los resultados mediante un análisis de error relativo como lo planteó \textcite{valverdedesenvolvimento}, la desviación estándar con tasa de 5\% y tablas ANOVA como lo mostrado por \textcite{NI20171274} y \textcite{PETROLLESE2020113307}.
+
+% Luego se desarrolló un análisis estadístico de las pruebas realizadas, para caracterizar la relevancia en los resultados de cada variable termodinámica en los diferentes estados termodinámicos, así como  la relevancia de cada variable. Para ambos objetivo se generarán tablas ANOVA que permitan ver el comportamiento de los resultados.
+
+% Posteriormente, a los resultados estadísticos se les agregó el porcentaje de error y la desviación estándar de cada uno de los componentes y datos de entrada, así como la caracterización de los datos de entrada y la la repercusión que tienen en la variación existente en los resultados finales mediante tablas ANOVA desviación estándar al 5\%.
+
+% Posteriormente se discutieron los resultados obtenidos y se llegaron a las conclusiones del presente trabajo, analizando la viabilidad del software obtenido como resultado y validando la hipótesis.

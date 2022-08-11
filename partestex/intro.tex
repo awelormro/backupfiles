@@ -1,0 +1,172 @@
+\makeatletter
+\let\savedchap\@makechapterhead
+\def\@makechapterhead{\vspace*{-3cm}\savedchap}
+\chapter{Introducción}
+\let\@makechapterhead\savedchap
+\makeatletter
+
+%
+Éste capítulo está dividido en dos secciones, el planteamiento del problema de estudio y los conceptos previos para poder entender el problema el resto del presente trabajo.
+% En éste capítulo se dará una el planteamiento del problema, mostrando el escaso aprovechamiento que ocurre en torno a la bioenergía como solución energética en México y el mundo, explicando el panorama internacional para concluir en la situación actual en México mediante reportes técnicos para posteriormente dar un conjunto de conceptos que sirvan para clarificar temas que se abordarán después con el fin de justificar la solución que busca dar el presente trabajo.
+
+
+\vspace{-24pt}
+\section{Planteamiento del problema}
+% \vspace{-35pt}
+% La siguiente sección tratará la situación de las energías renovables en la actualidad a nivel global, llegando a analizar el estado en que se encuentra su uso en México, se tomarán los estudios de 2021 de diversas asociaciones dedicadas al estudio de la instalación, aprovechamiento y promoción, como lo es REN21 o Renewable Energy 21 (Energía renovable 21, por sus siglas en inglés), la IEA o International Energy Association (Asociación internacional de Energía) y la proyección del gobierno mexicano en la producción de energía nacional. Dado a la manera en que se generan sus estudios, los resultados del año 2021 se obtienen recopilando durante el año 2020 las cifras del año 2019, y los estudios para el año siguiente se publican en el mes de octubre.Como breve corolario, la potencia instalada se define como la capacidad de generación de energía ya sea térmica o eléctrica ofrecida por un sistema, región o país.
+
+Ésta sección trata el contexto de las energías renovables partiendo desde su situación a nivel global descrita en los reportes técnicos de diversos organismos internacionales, abarcando todos los tipos de energía renovable y no renovable, luego se describe el aprovechamiento de la bioenergía en el planeta, las zonas donde se han instalado la mayor cantidad de plantas  para luego estudiar su uso y distribución en México.
+
+De acuerdo a lo publicado por \textcite{irenahighlight2022} (Agencia Internacional de Energía Renovable por sus siglas en inglés)(2022) para el año 2021 se tiene una capacidad instalada a nivel global de 3.063926 TW de capacidad instalada a nivel global dividida de los cuales el sector de Norteamércia genera 457.857 GW, y como se observa en la tabla~\ref{tab:capren1}, y la producción de energía mediante bioenergías con biogás, Biocombustibles líquidos, sólidos y residuo sólido urbano acumulan un total de 143371.13 MW de potencia instalada a nivel global.
+
+ \begin{table}[H]
+ \centering
+ \caption{Capacidad instalada de energía renovable en el mundo hasta diciembre de 2021. \linebreak Tomado de \textcite{irenahighlight2022}}
+ \label{tab:capren1}
+ \begin{tabular}{ccc}
+     \hline
+     Tecnología                         & Porcentaje de uso & MW instalados \\
+     \hline
+         Biogás                         & 0.7041\%          & 21574.16      \\
+         Energía geotérmica             & 0.5106\%          & 15643.96      \\
+         Biocombustibles líquidos       & 0.843\%           & 2584.18       \\
+         Energía mareomotriz            & 0.0171\%          & 524.14        \\
+         Plantas hidráulicas mixtas     & 1.7323\%          & 53077.14      \\
+         Energía eólica fuera de costas & 1.8172\%          & 55678.35      \\
+         Energía eólica en suelo        & 25.1049\%         & 769195.74     \\
+         Energía hidráulica renovable   & 38.4135\%         & 1176962.43    \\
+         Residuo sólido urbano          & 0.6371\%          & 19520.44      \\
+         Energía solar fotovoltaica     & 27.5165\%         & 843086.16     \\
+         Energía solar térmica          & 0.2084\%          & 6386.55       \\
+         Biocombustibles sólidos        & 0.32537\%         & 99692.35      \\
+         \hline
+         Total                          & 100\%             & 3063925.596   \\
+         \hline
+
+     \end{tabular}
+ \end{table}
+
+
+La potencia instalada hablada previamente se divide en 948385 proyectos alrededor del mundo, como se muestra en la tabla~\ref{tab:proyren}, de los cuales se observa que la mayor cantidad son enfocados en el sector fotovoltaico con 379181 proyectos instalados a nivel global debido a la versatilidad que ha hallado en su construcción y los apoyos gubernamentales recibidos en regiones como las naciones pertenecientes a la unión europea, seguido de la energía eólica con 175686, mostrando un gran interés de las naciones del norte de Europa, el este asiático, Canadá y Estados Unidos por el aprovechamiento de la fuente eólica para la producción de electricidad, dada su naturaleza de mantener un flujo de producción ininterrumpida y sin la necesidad de insumos, más allá del mantenimiento y percances que puedan ocurrir como huracanes, fallos eléctricos del generador o una imperfección en las aspas, entre otros. La producción de energía mediante residuos como residuo sólido urbano, bagazo y residuo orgánico industrial han ido en lento pero constante crecimiento dada su naturaleza de cerrar el ciclo de producción al aprovechar la basura generada para producción de energía primaria, y dependiendo el proceso previo de la materia prima, se pueden generar plantas de reciclaje al momento de clasificar los materiales que serán la base para la producción de energía eléctrica.
+
+\begin{table}[h]
+    \centering
+    \caption{Proyectos totales instalados. \linebreak Tomado de \textcite{irenahighlight2022}}
+    \label{tab:proyren}
+    \begin{tabular}{cc}
+        \hline
+        Fuente                             & Cantidad \\
+        \hline
+        Eólica                             & 175686   \\
+        Solar térmica                      & 141236   \\
+        Solar Fotovoltaica                 & 379181   \\
+        Híbrida Solar térmica Fotovoltaica & 38388    \\
+        Mareomotriz                        & 25017    \\
+        Hidráulica e Hidroeléctrica        & 42140    \\
+        Geotermia                          & 4398     \\
+        Geotermia sin bomba de calor       & 8954     \\
+        Bioenergía de residuos             & 47120    \\
+        Biocombustibles                    & 86265    \\
+        Total                              & 948385   \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Un preámbulo importante para el uso de la energía renovable son los estudios de comparación entre décadas como el realizado por~\textcite{ren212022global} en su reporte de estado global del año 2021, el uso de energía renovable ha tenido un estancamiento en el crecimiento de capacidad instalada a nivel global, como se puede observar en la figura~\ref{fig:ren211} que pese a tener un mayor número de plantas instaladas, reflejándose en la capacidad instalada a nivel global, no ha sido un crecimiento tan rápido como se preveía en décadas pasadas, entre los principales factores atribuidos a lo mencionado, son las crisis económicas sufridas durante la década pasada y un apoyo intermitente al uso de nuevas tecnologías por parte de los gobiernos alrededor del mundo, así como la negación del sector industrial a la búsqueda de cambios radicales en las plantas para poder operar con energía renovable, además de la necesidad de grandes sistemas de almacenamiento tanto eléctrico como térmico.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{ren211.png}
+\caption{Comparación de la energía producida a nivel global. \linebreak Tomado de \textcite{ren212022global}}
+\label{fig:ren211}
+\end{figure}
+
+ Pese a que se estancó el uso de energía solar, la biomasa sigue siendo una fuente de energía de alto uso en el sector Asia-Pacífico, la India y el este de África, siendo un 4.2\% de uso global junto a la geotermia en el uso auxiliar en el año 2019 dadas las condiciones con las que se realiza el estudio, además de ser un 2.4\% compartido junto al uso de la energía solar, eólica y mareomotriz, y un 1\% para uso en el transporte, siendo una de las fuentes de energía renovable mayormente utilizadas, pese a que el régimen energético global no ha cambiado demasiado con respecto a la década previa, siendo únicamente un cambio del 8.7\% al 11.2\% el uso de energías renovables a nivel global, debido entre otros factores a las crisis económicas que ha sufrido occidente y la baja participación de los gobiernos del sector Asia-Pacífico para promover e instalar sistemas de energía renovable a gran escala, confiando directamente las fuentes de energía fósil, como lo es el uso de gas para generación de energía térmica y eléctrica (\cite{ren212022global}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{ren212.png}
+\caption{Consumo final de energía a nivel global. \linebreak Tomado de \textcite{ren212022global}}
+\label{fig:ren212}
+\end{figure}
+
+Además, \textcite{ANTAR2021} resaltan la proyección del uso de la biomasa, pudiendo llegar a 3000 TWh anuales, ahorrando 1.3 billones de toneladas de $CO_{2}$ equivalente por año, reduciendo el impacto ambiental de la energía eléctrica producida y reduciendo la acumulación de residuos orgánicos. Siendo la región Asia-Pacífico la que mayormente usa biomasa dado a la facilidad de obtención además de los usos y costumbres en el sector doméstico que potencian su uso en escalas industriales, con un 40\% de la aplicación total a nivel global, teniendo a China como el máximo usuario de la biomasa dentro de la región, pasando de menos de 5 millones de barriles de petróleo equivalente a casi 160 millones en una década, como se ve en la gráfica.
+
+
+Explicado el contexto energético a nivel global y en México para el entendimiento de la importancia de la , el presente trabajo pretende analizar las variables matemáticas más significativas para el desarrollo de ecuaciones de modelación que permitan la simulación de sistemas térmicos, con lo que se podrá predecir su comportamiento con el objetivo de hacer la mejor toma de decisiones posible con respecto al aprovechamiento de recursos y el tipo de combustible a emplear precisando el margen de potencia y pérdidas perceptibles debido al transporte, mediante variables que sean de importancia tales como las pérdidas energéticas, los poderes caloríficos teóricos de biomasa sólida, el volumen de biogás producido, así como el volumen de gas natural o licuado de petróleo también conocido como gas LP, y diésel en el caso de ser solicitado.
+
+Además la \textcite{wba2021} (Asociación mundial de la biomasa, por sus siglas en inglés) realizó un análisis global el año 2021 con los datos hasta el año 2019, lo cual sirve como preámbulo para analizar el comportamiento de los sistemas que utilizan biomasa, como se observa en la tabla~\ref{tab:biomasa21}.
+
+
+La generación de energía renovable pese a tener un estancamiento a nivel global como se mostró previamente, los comportamientos por continente varían y es lo que se muestra en la tabla~\ref{tab:biomasa21}, siendo África el continente que mayormente usa la energía renovable como suministro de energía primaria con un 47\%, siendo las fuentes principales la energía hidráulica y la biomasa las formas más utilizadas, gracias a los cauces de los ríos y canales construidos como las principales razones por las cuales se usan fuentes hidrológicas, y la biomasa tradicional gracias al aprovechamiento de residuos orgánicos y aprovechamiento de las excretas animales que se encuentran en la región, seguida de lejos por un 16\% en la unión europea, gracias a los esfuerzos en sus políticas energéticas y planes gubernamentales en apoyo al incremento en capacidad instalada de fuentes renovables.
+
+\begin{table}[H]
+    \centering
+    \caption{Suministro de energía primaria por continente. \\ Tomado de \protect\textcite{wba2021}}
+    \label{tab:biomasa21}
+
+    \begin{tabular}{cccccccc}
+        \hline
+        Región          & Carbón & Petróleo & Gas  & Nuclear & Renovables & Total & (\%) de renovables \\
+        \hline
+        África          & 4.97   & 8.28     & 5.66 & 0.14    & 16.8       & 35.9  & 47\%               \\
+        América         & 13.9   & 51.7     & 44.7 & 10.7    & 19.2       & 140   & 14\%               \\
+        Asia            & 125    & 63.7     & 29.9 & 7.06    & 34.9       & 261   & 13\%               \\
+        Europa          & 16.2   & 31.6     & 40.7 & 12.5    & 13.6       & 115   & 12\%               \\
+        Oceanía         & 1.81   & 2.09     & 1.60 & 0.00    & 0.75       & 6.25  & 12\%               \\
+        U. Europea - 28 & 7.56   & 21.7     & 16.8 & 8.97    & 10.6       & 65.9  & 16\%               \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Otra parte importante mencionada por la~\textcite{wba2021} es el histórico de la generación de energía a nivel global se observa a más detalle el lento crecimiento en el porcentaje de la capacidad instalada de energía renovable, mostrando que pese a que se siga incrementando la cantidad de plantas de fuentes renovables, no es proporcional al incremento de demanda de energía primaria a nivel global, como se observa al comparar los años 2010 y 2019, incrementando únicamente un 1.8\%, entre varias de las razones, está en que no se ha vuelto un sistema atractivo para el sector industrial al requerir cambios mayores en sus instalaciones, o nulo apoyo a las energías renovables, como sucedió en zonas de medio oriente, donde únicamente se ha visto utilizada la energía solar en pequeña escala, con una mayoría de plantas menores a 1 MW de potencia instalada, así como el incremento del uso de carbón a nivel global, teniendo un incremento de 187 GW desde el año 2000 a 2019.
+
+\begin{table}[H]
+    \centering
+    \caption{Histórico de producción  de energía primaria a nivel global, unidades en GW. \\ Tomado de \textcite{wba2021}} 
+    \label{tab:biomasa22} 
+    \begin{tabular}{cccccccc}
+    \hline
+    Año  & Total & Carbón & Petróleo & Gas  & Nuclear & Renovables & \% de renovables \\
+    \hline
+    2000 & 419   & 96.9   & 154      & 86.6 & 28.3    & 53.4       & 12.8\%           \\
+    2005 & 480   & 125    & 168      & 98.6 & 30.2    & 58.2       & 12.1\%           \\
+    2010 & 536   & 153    & 173      & 114  & 30.1    & 66.2       & 12.3\%           \\
+    2015 & 568   & 161    & 181      & 122  & 28.1    & 75.4       & 13.3\%           \\
+    2016 & 573   & 156    & 184      & 127  & 28.5    & 77.5       & 13.5\%           \\
+    2017 & 585   & 159    & 187      & 130  & 28.8    & 80.2       & 13.7\%           \\
+    2018 & 600   & 162    & 187      & 137  & 29.6    & 83.0       & 13.8\%           \\
+    2019 & 606   & 162    & 187      & 141  & 30.5    & 85.4       & 14.1\%           \\
+    \hline
+    \end{tabular}
+\end{table}
+
+
+La demanda de energías renovables ha ido en aumento como se muestra en la tabla~\ref{tab:biomasa22} teniendo una tendencia de incremento de un 148\% en energía primaria total aportada en los 17 años censados y un valor promedio del 13\% de presencia en importación de energía primaria a nivel global.
+
+Aunado a lo dicho, \textcite{ren212022global} muestra un uso total de biomasa tradicional, entendida como aquella no se procesa ni es obtenida directamente como recurso final general 7.5\% de la energía para el uso final a nivel global hasta el año 2017, lo que muestra el incremento en la necesidad del uso de energías sustentables y el aprovechamiento de recursos renovables como lo es la madera, basura municipal y residuos industriales de origen orgánico. 
+
+\vspace{18pt}
+La generación de energía renovable en México, de acuerdo al plan de desarrollo del sistema eléctrico nacional o PRODESEN, (\citeyear{prodesen}) muestra que México tiene una capacidad instalada de 89479 MW de generación entre todas las fuentes de energía, siendo 7.65\% mayor a la generación de 2020. La producción de energía eléctrica producida tiene un 34\% por Comisión Federal de Electricidad (CFE) mostrando que la energía generada en México en su mayoría proviene de la iniciativa privada en forma de productores para su venta, centrales operadas por PEMEX y la iniciativa privada, ya sea para autoconsumo o venta para distribución al Sistema Eléctrico Nacional (SEN) en forma de energía residual. Para abril del 2021 la capacidad instalada de producción de energía renovable es de 28714 MW, habiendo un incremento en comparación con el 2020, que era de 25594 MW, y la capacidad instalada en 2021, representada en la figura\ref{fig:imagenes-energmex1} muestra que los ciclos de potencia y las centrales termoeléctricas siguen siendo las fuentes de energía eléctrica más utilizada en el país, siendo el 52.4\% del total de energía producida, y la sumatoria de la bioenergía, energía eólica, solar, hidroeléctrica y geotérmica da un 32.29\% de la generación a nivel nacional,siendo la energía hidroeléctrica la de mayor afluencia con un 14.1\% del total, dada la estructura del país con diversidad de ríos y cauces que permiten la construcción de centrales hidroeléctricas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/energmex1.png}
+    \caption{Generación de energía eléctrica por manera de producción en México el año 2021. \linebreak Tomado de SENER y CENACE \citeyear{prodesen}} 
+    \label{fig:imagenes-energmex1}
+\end{figure}
+
+\vspace{18pt}
+Además de lo previamente mencionado, se puede observar que la distribución de los productores de energía en el país se divide en cuatro productores, CFE que entre ciclo combinado y térmica convencional componen casi la mitad de su potencia instalada, siendo un total de 20758 MW de potencia instalada, los productores eléctricos de medio abasto, que más del 90\% de su producción es derivada de sistemas de ciclo combinado, el sector privado con 14013 MW de potencia instalada proviene de fuentes fotovoltaicas y eólicas, y PEMEX que obtiene su energía de sistemas de cogeneración eficiente, energía térmica convencional y carboeléctricas, con las que se denota un área de oportunidad en el aprovechamiento de la biomasa, al generar únicamente 86 MW de potencia instalada y registrada, al disponer en México una oportunidad de aprovechamiento de recursos, al tener 102,895 toneladas de basura al día, reciclando únicamente 9.63\% de los residuos sólidos urbanos, materia que podría ser aprovechada para la generación de energía térmica y eléctrica (SEMARNAT, 2017).
+
+\vspace{-15pt}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/energmex2.png}
+    \caption{Producción de energía eléctrica generada por cada sector. \linebreak Tomado de SENER y CENACE ( \citeyear{prodesen})}
+    \label{fig:imagenes-energmex2}
+\end{figure}
+
+
+

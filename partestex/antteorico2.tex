@@ -1,0 +1,167 @@
+% \chapter{Conceptos de termodinámica}%
+% \label{cha:Conceptos de termodinámica}
+La siguiente sección hablará de la entropía representada mediante la segunda ley de la termodinámica, la energía y la exergía, definiendo cada una y analizando su perspectiva histórica para entender cómo se han ido ampliando sus panoramas durante el transcurso del tiempo.
+
+\subsection{Segunda ley de la termodinámica}
+
+En la siguiente sección se hablará acerca de la segunda ley de la termodinámica, la cual viene directa de la desigualdad de Clausius, que se enuncia como:
+
+\begin{center}
+    \begin{minipage}{0.9\linewidth}
+        \vspace{5pt}%margen superior de minipage
+        {\small
+            Es imposible construir un dispositivo que opere en un ciclo sin que produzca ningún otro efecto que la transferencia de calor de un cuerpo de menor temperatura a otro de mayor temperatura.
+        }
+        \begin{flushright}
+            (\citeauthor{clau1}, \citeyear{clau1}: 10)
+        \end{flushright}
+        \vspace{5pt}%margen inferior de la minipage
+    \end{minipage}
+\end{center}
+
+Dicha afirmación es expresada mediante la siguiente desigualdad, conocida como la desigualdad de Clausius:
+
+\begin{equation}
+    \frac{\delta Q}{T} \geq 0
+\end{equation}
+
+\textcite{burghardt1984ingenieria} y \textcite{ccengel2006termodinamica} coinciden en que mediante dicha ecuación, se pueden estudiar las características de \( Q_{entrada} \) y \( Q_{salida} \) para los sistemas termodinámicos, mostrando que existen sistemas que pueden obtener una mayor cantidad de \( W_{salida} \), con lo que se obtiene el concepto de \( \eta_{t \acute{e}rmica } \), que se puede entender como:
+
+\begin{equation}
+    Eficiencia\, t \acute{e}rmica=\frac{Salida\,de\,trabajo\,neto}{Entrada\,de\,calor\,total}
+\end{equation}
+
+\subsection{Ciclo de Carnot}
+
+En la siguiente sección se abordará el ciclo termodinámico base, bajo el cual se comenzó a trabajar con el resto. \textcite{burghardt1984ingenieria} lo visualiza como la base para poder entender los ciclos Rankine y cualquier otro ciclo que involucre la obtención de un trabajo mecánico o eléctrico. 
+
+
+\textcite{rajput2009engineering} explica que el Ciclo de Carnot se desarrolla en un dispositivo cilindro-émbolo con condiciones ideales (sin pérdida de calor por contacto con el exterior, pérdidas por fricción o trayecto irregular del dispositivo) con los siguientes pasos durante el ciclo descritos de manera gráfica en la figura~\ref{fig:ciclocarnot1}:
+
+\begin{itemize}
+    \item Fase 1 (Procesos 1-2).- Entrada de calor al sistema, generando una expansión isotérmica reversible.
+    \item Fase 2 (Procesos 2-3).- Expansión adiabática con un descenso de temperatura constante.
+    \item Fase 3 (Procesos 3-4).- Compresión isotérmica con expulsión de calor restante en un \( \Delta T \) constante.
+    \item Fase 4 (Procesos 4-1).- Compresión adiabática con la cabeza del dispositivo cilindro-émbolo funcionando como aislante térmico ideal, sin pérdidas ni intercambio de calor con el exterior.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=5cm]{pvciclocarnot.png}
+    \caption{Ciclo de Carnot. \\ Tomado de \textcite{shapirotermo}}
+    \label{fig:ciclocarnot1}
+\end{figure}
+
+% \subsection{Irreversibilidades de la segunda ley de la termodinámica} % (fold)
+% \label{sub:Irreversibilidades de la segunda ley de la termodinámica}
+%
+% Los procesos termodinámicos tienen un conjunto de factores que impiden que se convierta toda la energía en trabajo, algunos de ellos son descritos en la tabla 
+%
+%
+% \begin{table}[H]
+%   \centering
+%   \caption{Irreversibilidades derivadas de la segunda ley de la termodinámica \\ tomado de \textcite{ccengel2006termodinamica}}
+%   \label{tab:irrtermo} 
+%   \begin{tabular}{cc}
+%     \hline
+%     Irreversibilidad & Concepto \\
+%     \hline
+%   \end{tabular}
+% \end{table}
+
+
+% subsection subsection name (end)
+
+\section{Histórico de la segunda ley de la termodinámica}
+
+El estudio de la entropía  se ha ido extendiendo con el tiempo, como lo describe \textcite{eriyagi1}, la entropía es un concepto que se ha ido moviendo conforme el paso del tiempo, desde su aparición en el artículo publicado por Rudolf Clausius en 1865, hablando de disgregación (niveles de dispersión de la energía) y ``Uncompensirte Verwandlung'' (transformación de energía no compensatoria). Luego de ello, \textcite{florescamacho1} explica cómo dicha ecuación ha ido modificándose con respecto al tiempo, llegando a las formas manejadas por literatura más reciente como lo son \citeauthor{ccengel2006termodinamica}, \citeauthor{shapirotermo}, siendo vigentes hasta la actualidad, el cómo se han ido modificando durante el tiempo se ve reflejado en la tabla ~\ref{tab:tabhistentro}.
+ 
+% \vspace{12pt}
+
+\begin{table}[H]
+    \caption{Línea histórica del estudio de la entropía. \\ Tomado de \textcite{eriyagi1}, \textcite{florescamacho1}}
+    \label{tab:tabhistentro}
+    \centering
+    \footnotesize
+    \begin{tabular}{ccp{5cm}p{6cm}}
+        \hline
+        Año & Autor & Ecuación & Observaciones \\
+        \hline
+        Carnot & 1824 &  & Aprovechamiento de la energía térmica  \\
+        Clapeyron & 1834 & $Q-Q \prime =RC log \frac{p \prime}{p} =RClog \frac{v}{v \prime} $ & Expresión analítica del ciclo de Carnot \\
+        Clausius & 1847 &  & Absorción de luz en la atmósfera  \\
+        Helmholtz & 1847 & $\frac{1}{2} mQ^{2}-\frac{1}{2}mq^{2}=-\int_{r}^{R}\phi dr $ & Conservación de la fuerza \\
+        Joule & 1843-1850 &  & Determinación experimental del equivalente en la mecánica del calor, el Joule (J) \\
+        W. Thomson & 1848 & & Escala termométrica absoluta \\
+        W. Thomson & 1849 & $ \frac{W}{Q}=\frac{\mu (1-E_{t})}{E}, \, \mu = \frac{1}{C} $ & Expresión de la primer ley de la termodinámica, usando $\mu$ como el coeficiente de Carnot y $E$ como el coeficiente de expansión. \\
+        Clausius & 1850 & $dQ=dU+AR\frac{a+t}{v}dv\,(a+t=T)$   & forma diferencial de la primer ley de la termodinámica. \\
+        Clausius & 1854 & $\int \frac{dQ}{T} = 0$ &  \\
+        Clausius & 1862 & $\int \frac{dQ+dH}{T}+ \int dZ \leq 0$ & Incorporación de la disgregación al estudio de la entropía. \\
+        Clausius & 1865 & $dU = dQ-dw$ ó 
+        $dQ=dU+dw,\, ds=\frac{dQ}{T}$, ó 
+        $\int \frac{dQ}{T} \leq 0$ & Forma diferencial complete, forma para sistemas cerrados, para procesos reversibles y procesos irreversibles, respectivamente. \\
+        Clausius & 1873 & $dU=Tds-PdV$ & Forma de cálculo de la energía interna con uso de la entropía ya incorporada como variable de estado. \\
+        Gibbs & 1902 & & Publicación del libro ``Principios elementales en mecánica estadística'', incorporando los conceptos de entropía y energía no aprovechable. \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+\section{Exergía}
+
+No todo el calor o el trabajo de entrada se convierte en energía de salida, como se vio en la sección anterior, es importante analizar la energía que sí se puede aprovechar, llamada exergía. Dentro de las definiciones existentes de la misma están las siguientes:
+
+\begin{itemize}
+  \item \textcite{ccengel2006termodinamica} usan la descripción de exergía como ``el potencial de trabajo de un sistema en un ambiente especificado y representa la cantidad máxima de trabajo útil que puede obtenerse''.
+  \item \textcite{rajput2009engineering} no la usa el concepto de exergía explícitamente, llamándole ``energía disponible'' y maneja su definición como la porción de energía máxima que puede convertirse en trabajo mediante procesos ideales que reducen el sistema a un estado muerto (estado de equilibrio con la tierra y su atmósfera).
+  \item \textcite{shapirotermo} ven la exergía como el máximo trabajo teórico que puede obtenerse de la interacción mutua entre el ambiente y algún sistema de interés.
+\end{itemize}
+
+Los tres autores coinciden en que es la cantidad de trabajo o energía máxima que se puede obtener de un proceso, contando todas las interacciones que pueden haber con el entorno en que se realiza un proceso, además de hacer la división de energía útil o disponible y energía no disponible.
+
+\subsection{Trabajo reversible} % (fold)
+\label{sub:Trabajo reversible}
+
+
+Luego de haber visto lo que supone la energía máxima aprovechable, es necesario hablar del trabajo reversible, que se puede definir como:
+
+\begin{itemize}
+  \item \textcite{ccengel2006termodinamica} define el trabajo reversible como ``la cantidad máxima de trabajo útil que puede producirse (o el trabajo mínimo que necesita ser proporcionado) cuando un sistema experimenta un proceso entre los estados inicial y final especificados. Éste es el trabajo de salida útil (o entrada) obtenido (o gastado)''
+  \item \textcite{burghardt1984ingenieria} considera el trabajo reversible como todo el calor disponible luego de que un proceso termodinámico es llevado a cabo.
+  \item \textcite{shapirotermo} lo ve como todo trabajo que puede llegar desde el estado inicial al estado final sin depender de procesos adicionales.
+\end{itemize}
+
+
+
+Ya definida la exergía, y los trabajos reversibles, se entiende que no toda la energía teórica de entrada se transforma en trabajo, a ésta energía se le conoce como irreversibilidad, el concepto usado por \textcite{rajput2009engineering} la define como la diferencia de trabajo producido con respecto al trabajo ideal reversible, viéndose de la siguiente manera:
+
+\begin{equation}
+  I = W_{m\acute{a}ximo}-W_{producido}
+  \label{eq:eqirr}
+\end{equation}
+
+La segunda ley de la termodinámica permite ver que no toda la energía se puede aprovechar, la exergía engloba la energía teórica que sí se puede aprovechar, \textcite{rajput2009engineering} retoma ésta capacidad de aprovechar la energía, cuánta de ella se logra convertir en trabajo y la describe como efectividad, descrita como el cociente de la energía que se obtuvo con respecto a la energía total aprovechable, quedando de la siguiente manera:
+
+\begin{equation}
+  Efectividad= \epsilon = \frac{E_{obtenida}}{E_{te\acute{o}rica,\,aprovechable}}
+  \label{eq:efectividad}
+\end{equation}
+
+Para entender cómo éste concepto se ha ido modificando con el paso del tiempo, la siguiente sección hablará de la cronología del uso y aplicación del concepto de exergía.
+
+\subsection{Histórico de la exergía} % (fold)
+\label{sub:historiaexergía}
+
+La exergía, al igual que la entropía se ha ido modificando al pasar de los años, \textcite{wallexergy}denota que, hasta la década de 1970 el concepto seguía sin una palabra que permitiera definir el concepto, siendo llamada ``Available energy'' (Energía disponible en español) en publicaciones de Estados Unidos, y ``Arbeitsfähigkeit'' o ``exergie'' en Alemania y otras regiones de Europa. Dividió las etapas históricas del estudio de la exergía en tres periodos:
+
+\begin{itemize}
+  \item La etapa del comienzo: Periodo comprendido desde los primeros escritos publicados por Carnot en 1824, hasta el trabajo realizado por Obert y Bernie en 1949. Durante éste periodo se desarrolló la idea de no poder aprovechar toda la energía de entrada para convertirla en trabajo, con estudios desarrollados en paralelo, como el caso de Gibbs y Gouy entre 1888 y 1894 analizando la energía aprovechable, denominándola "disponibilidad de energía" por parte de Gibbs y Gouy llamándola "energía utilizable" Durante ésta época las instituciones educativas comenzaron a estudiarla de manera directa, como el caso de Fran Bošnjakovic que fundó en Alemania la academia de Termodinamicistas aplicados y teóricos con sede en Stuttgart en el año 1938, para continuar con el desarrollo de las formulaciones que iban saliendo conforme avanzaba el tiempo, cerrando éste periodo el trabajo de los americanos Obert y Birnie en 1949 realizando un análisis de la energía aprovechada en una de generación de electricidad, teniendo mayor repercusión dos décadas después. 
+  \item La etapa de la definición del concepto y sus campos de aplicación: Lo clasifica desde 1950 hasta 1970, comenzando con el trabajo de Zoran Rant en 1953, sugiriendo por primera vez el uso de la palabra ``exergía'' para englobar los conceptos desarrollados con respecto a la capacidad técnica de producir trabajo, usando la etimología de la palabra energía (trabajo interno) implicando factores ``externos'', tomó medio siglo que dicha definición fuera aceptada y utilizada de manera global, aunque existen autores que siguen utilizando el término de disponibilidad hasta la actualidad. La definición formal también se extendió, usando la exergía para evaluar sistemas tanto abiertos como cerrados de la mano de Robert B. Evans en 1961, incorporando el uso de los conceptos de la energía libre de Helmholtz para cálculos de exergía en sistemas cerrados y energía libre de Gibbs para sistemas abiertos, además del desarrollo de la termoeconomía para analizar mediante la termodinámica y el aprovechamiento de la energía los aspectos económicos de un sistema, por parte de Myron Tribus en 1961 en las instalaciones del Instituto Tecnológico de Massachusetts (MIT por sus siglas en inglés). 
+  \item La etapa de la madurez de la teoría de la exergía: Éste periodo abarca desde 1970 hasta la actualidad, y en ésta se comienzan a abordar los campos de estudio prácticos para la exergía, tomando trabajos de la década de 1960 (Baehr, Schmidt, Obert, Hastoupolos y Keenan) llegando en su momento trabajos como el de Dehlin que explicó la crisis energética vivida en la década de 1970 mediante un análisis exergético, además de comenzar a generar herramientas de diseño con base en el consimo de exergía, destacando algunos pioneros en desarrollo de herramientas para cálculo de exergía como lo son Gaggioli et al. (1964), Gruhn et al. (1976), Johnson (1980), Krumm et al. (1984), Abtahi et al. (1986), Rosen y Scott (1986), Tapia y Moran (1986), Tsatsaronis et al. (1986), Valero et al. (1987), Melli y Sciubba (1987), Alconchel et al. (1989), Bidini y Stecco (1991), Wimmert et al. (1991), Ngaw (1998), Maiorano et al. (2002).
+\end{itemize}
+
+
+Con todos los conceptos descritos para el entendimiento de éste trabajo, toca analizar las metodologías utilizadas para simular ciclos Rankine, las tecnologías, los algoritmos y modelos de validación para dichas simulaciones.
+
+% subsection historiaexergía (end)
+\vspace{24pt}

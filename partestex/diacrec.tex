@@ -1,0 +1,35 @@
+
+\begin{figure}[H]
+    \centering
+    \footnotesize
+    \begin{tikzpicture}[]
+    % >=latex',auto,inner sep=2mm,node distance=2cm and 3cm]
+
+%set styles for the axis between turbine and pump and for the boxes
+
+        \tikzset{box1/.style={draw,minimum width=2.5cm,rectangle,thick}}
+        \tikzset{deco/.style={decoration={markings,
+       mark=at position #1 with {\arrow{>}}},
+       postaction={decorate}}}
+       \tikzset{turb/.style={draw,trapezium,shape border rotate=90,inner sep=1pt,minimum width=2.5cm,trapezium stretches=true,trapezium angle=80,on grid,below right= of evaporatore}} 
+       \node[box1,xshift=3cm] (evaporatore)  {Caldera};
+       \node[turb,xshift=2cm,yshift=-1cm] (turbina) {Turbina};
+       \node[box1,on grid,below left=of turbina,xshift=-2cm,yshift=-1cm] (condensatore){Condensador};
+       \node[draw,circle,on grid,below left= of evaporatore,xshift=-2cm,yshift=-1cm] (pompa) {Bomba}; 
+       \node[yshift=-3.5cm,xshift=-0.5cm](texto1){\textcircled{1}};
+       \node[xshift=0.15cm](texto2){\textcircled{2}};
+       \node[xshift=5.7cm](texto3){\textcircled{3}};
+       \node[yshift=-3.5cm,xshift=7cm](texto4){\textcircled{4}};
+       \draw (pompa.70) |- ++(2.5mm,5mm) coordinate (mid)  -| (pompa.east);
+       \draw [arrow]  (evaporatore)                -| (turbina.top right corner);
+       \draw [arrow]  (turbina.bottom left corner) |- (condensatore);
+       \draw [arrow]  (condensatore)               -| (pompa);
+       \draw [arrow]  (mid)                      |- (evaporatore);
+       % \draw [deco=0.6]  (evaporatore)                -| (turbina.top right corner);
+       % \draw [deco=0.6]  (turbina.bottom left corner) |- (condensatore);
+       % \draw [deco=0.4]  (condensatore)               -| (pompa);
+       % \draw [deco=0.6]  (mid)                      |- (evaporatore);
+    \end{tikzpicture}
+    \caption{Diagrama de Ciclo Rankine con recalentamiento. \\ Tomado de \textcite{ccengel2006termodinamica}}
+    \label{fig:diaciclorank1}
+\end{figure}

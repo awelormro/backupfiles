@@ -1,0 +1,108 @@
+% Librerías usadas
+% Para poner pas cosas en español
+\usepackage[spanish, es-tabla]{babel}
+% Para usar imágenes
+\usepackage{graphicx}
+% Para tablas grandes
+\usepackage{longtable}
+% Para usar fuente helvética
+\usepackage[scaled]{helvet}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\renewcommand\familydefault{\sfdefault}
+% Para evitar saltos de página en cada capítulo insertado
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+%\usepackage{paralist}
+\usepackage{circledsteps}
+\usepackage{array}
+
+\newcommand{\mychronodatestyle}[1]{%
+\pgfmathparse{equal (sign(#1),-1)? int(abs( #1)):#1 }%
+\pgfmathresult%
+\pgfmathparse{equal(sign(#1),-1)? "BC":}%
+ ~\pgfmathresult%
+ }
+
+\newcommand{\mychronovdatestyle}[1]{%
+\pgfmathparse{equal(sign(#1),-1)? int(abs(#1)):#1 }%
+\edef\tmp{\pgfmathresult}%
+\pgfmathparse{equal(sign(#1),-1)? "BC":}%
+ \kern-1.5pt\rotatebox[origin=left]{90}{--- \tmp~\pgfmathresult}%
+ }
+
+ \catcode`\!=11
+ \def\eventyear{\!chreventyear}
+ \catcode`\!=12
+
+ \newcommand{\myeventdatestyle}[1]{%
+ \pgfmathparse{equal(sign(\eventyear),-1)? int(abs(\eventyear)):"#1"}%
+\pgfmathresult%
+ \pgfmathparse{equal(sign(\eventyear),-1)? "BC":}%
+ ~\pgfmathresult%
+ }
+
+% Paquete para armado de líneas temporales
+
+% \usepackage{chronology}
+
+
+% Genera formato apa
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=apa]{biblatex}
+\DefineBibliographyStrings{spanish}{ andothers = {et\addabbrvspace al\adddot}, and = {y}, }
+% Añade archivo de bibliografía
+\addbibresource{biblio.bib}
+% Genera opción de usar markdown en latex
+% \usepackage[pipeTables,tableCaptions,hybrid,smartEllipses,hashEnumerators]{markdown}
+% Paquete float para evitar que las cosas se peguen donde se les dé su chingada gana
+\usepackage{float}
+\makeatletter
+\renewcommand*{\fps@table}{H}
+\makeatother
+\floatstyle{plaintop}
+\restylefloat{table}
+\usepackage[justification=centering]{caption}
+% Ruta de imágenes
+\graphicspath{{imagenes/}}
+\usepackage{setspace}
+\doublespacing
+% Ajuste de márgenes
+\usepackage[left=2.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm ]{geometry}
+\usepackage{enumitem}
+% Generación de scripts para todo
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\setcounter{secnumdepth}{6}
+
+
+% Macro para generar números en círculos
+\newcommand{\cir}[1]{\tikz[baseline]{%
+    \node[anchor=base, draw, circle, inner sep=0, minimum width=0.5em]{#1};}}
+
+%librería tikz para generar diagramas
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, text width=4.5cm, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, draw=black]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+% Cambio en el título
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+% \titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter{.}\hsp}{0pt}{\huge\bfseries}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+% \usepackage{amsrefs}
+% \begin{figure}[]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{}
+%   \caption{}
+%   \label{fig:}
+% \end{figure}
+\usepackage{hyperref}
+

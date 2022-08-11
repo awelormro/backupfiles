@@ -1,0 +1,241 @@
+\chapter{Marco teórico}%
+\label{cha:Marco teórico}
+
+\section{Historia de los ciclos de vapor}
+
+En ésta sección se abordarán los conceptos fundamentales para los ciclos de potencia, así como las ecuaciones en las que se basó modelo analítico usado en el software del presente trabajo.
+\textcite{sciubba2007brief} describe la historia de la conceptualización y uso que ha tenido la exergía desde su descubrimiento. La fecha de 1824 marca el inicio, ya que fue cuando Carnot definió que "El trabajo mecánico que puede extraerse de un motor térmico es proporcional a la diferencia de temperaturas entre el punto de mayor y menor temperatura". Se complementó con el trabajo de Clapeyron en 1832, Rankine en 1851,
+
+\section{Ciclo Rankine}%
+
+El ciclo Rankine es un ciclo generado con la base del ciclo de Carnot, con vapor de agua como vehículo de la energía térmica para ser convertida en energía mecánica y posteriormente, en energía eléctrica (\cite{ccengel2006termodinamica}).
+
+\subsection{Ciclo Rankine estándar}
+
+\textcite{ccengel2006termodinamica} tiene el concepto de ciclo Rankine como una versión menos ideal del ciclo de Canor, usando como medio de transporte de la energía térmica vapor sobrecalentado, lo define en cuatro procesos:
+
+\begin{markdown}
+* 1-2 Compresión isentrópica con un sistema de bombeo
+* 2-3 Aumento de calor isobárico en una caldera.
+* 3-4 Expansión isentrópica en una turbina
+* 4-1 Expulsión de calor isobárica en un sistema de condensación.
+
+\end{markdown}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/CicloRankineIdeal.png}
+    \caption{Ciclo Rankine ideal. \linebreak Tomado de \force \textcite{ccengel2006termodinamica}}
+    \label{fig:imagenes-CicloRankineIdeal-png}
+\end{figure}
+
+\subsubsection{Análisis de energía de un ciclo Rankine estándar}
+
+Los componentes generan un balance de energía, de entrada de calor, presión, o expulsión de calor o trabajo, se genera un análisis de energía que en forma reducida se puede ver de la siguiente manera:
+
+\begin{equation}
+    (q_{entrada}-q_{salida})+(w_{entrada}-w_{salida})=h_{salida}-h_{entrada}
+\end{equation}
+
+Como la caldera y el condensador no tienen ningún tabajo que sea necesario considerar, el trabajo en la bomba se puede ver de la siguiente manera:
+
+\begin{equation}
+    w_{bomba, entrada}=h_{2}-h_{1}=v(P_{2}-P_{1})
+\end{equation}
+
+En la caldera, el trabajo se considera cero, quedando el balance:
+
+\begin{equation}
+    q_{entrada}=h_{3}-h_{2}
+\end{equation}
+
+La turbina con $q=0$:
+
+\begin{equation}
+    w_{turbina,salida}=h_{3}-h_{4}
+\end{equation}
+
+Y el condensador con $w=0$:
+
+\begin{equation}
+    q_{salida}=h_{4}-h_{3}
+\end{equation}
+
+usando la ecuación de apoyo:
+
+\begin{equation}
+    w_{neto}=w_{turbina,salida}-w_{bomba, entrada}=q_{entrada}-q_{salida}
+\end{equation}
+
+Genera la siguiente ecuación:
+
+\begin{equation}
+    \eta_{Térmica}=\frac{w_{neto}}{q_{entrada}}=1-\frac{q_{salida}}{q_{entrada}}
+\end{equation}
+
+Representa la eficiencia térmica del ciclo Rankine.
+
+\subsection{Ciclo Rankine con recalentamiento}
+
+El recalentamiento es una técnica en la que se vuelve a pasar el vapor por un proceso de inyección de energía térmica en la caldera \cite{ccengel2006termodinamica}. Da como resultado en un esquema la figura 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/CicloBraytonCerrado.png}
+    \caption{Ciclo Rankine con recalentamiento. \linebreak Tomado de \force \textcite{ccengel2006termodinamica}}
+    \label{fig:rankinerecal}
+\end{figure}
+
+Las ecuaciones de calor de entrada y trabajo realizado se modifican quedando de la siguiente manera:
+
+\begin{equation}
+    q_{entrada}=q_{primario}+q_{recalentamiento}=(h_{3}-h_{2})+(h_{5}-h_{4})
+\end{equation}
+\begin{equation}
+    w_{turbina,salida}=w_{turbina,I}+w_{turbina,II}=(h_{3}-h_{4})+(h_{5}-h_{6})
+\end{equation}
+
+La expansión en ambas turbinas sigue siendo isentrópica y la adición de calor se mantiene a presión constante. Las ecuaciones para el sistema de bombeo y la condensación se mantienen a lo visto en el ciclo Rankine estándar.
+
+\subsection{Ciclo Rankine con regeneración}
+
+Otra manera de aumentar la eficiencia en las aplicaciones del ciclo Rankine es el uso de un sistema regenerativo, que consiste en inyectar vapor dentro de una cámara de mezclado, pudiendo ser abierto como se muestra en la figura (insertar figura), generando dos fracciones de vapor del uso general, con ello, se aumenta la eficiencia de la inserción de calor en la caldera, al no requerir elevar tanto la temperatura del agua, dando las siguientes ecuaciones:
+
+\begin{equation}
+    q_{entrada}=h_{5}-h_{4}
+\end{equation}
+
+\begin{equation}
+    q_{salida}=(1-y)(h_{7}-h_{1})
+\end{equation}
+
+\begin{equation}
+    w_{turbina,salida}=(h_{5}-h_{6})+(1-y)(h_{6}-h_{7})
+\end{equation}
+
+\begin{equation}
+    w_{bomba,entrada}=(1-y)w_{bomba I, entrada}+w_{bomba II, entrada}
+\end{equation}
+
+\begin{equation}
+    y=\dot{m}_{6}/\dot{m}_{5}
+\end{equation}
+
+como se puede ver en la figura (poner figura) el esquema maneja el mismo sistema, anexando la fracción de vapor que se inyecta a un intercambiador abierto, dicha fracción se obtiene del cociente entre los flujos másicos $\dot{m}_{5} $ y $\dot{m}_6 $, el resto de ecuaciones de ven afectadas por la extracción de vapor, juntándose luego del sistema de calentador abierto.
+
+
+
+\subsection{Ciclo Rankine con recalentamiento y regeneración}
+
+Ambos sistemas previamente descritos pueden ser combinados para el aprovechamiento de energía, dando lugar a un diagrama similar al de la figura (poner figura), así como agregar diferentes extracciones de vapor para procesos, y múltiples recalentamientos para aprovechar la mayor cantidad de energía posible.
+
+% \section{Exergía}
+
+% La exergía es la energía útil que se puede utilizar luego de analizar las irreversiblidades de un proceso termodinámico, expresado 
+
+% \subsection{Historia de la exergía}
+
+% La exergía ha tenido modificaciones y diversas aplicaciones dada su naturaleza de mostrar el trabajo máximo aprovechable, la cantidad de energía aprovechable en un ciclo, definido por Carnot en 1824, apoyado por el trabajo de Clapeyron en 1832, Rankine en 1851, y Thomson en 1852, ayudaron a posicionar el trbajo de Clausius en 1867 con la segunda ley de la termodinámica. La cual sirvió para que Gibbs en 1873 definiera el concepto de "energía disponible" con la que generó la ecuación 
+
+% \begin{equation}
+%     -\epsilon + T \eta -Pv + M_{1}m_{1} + M_{2}m_{2} ... + M_{n}m_{n}
+% \end{equation}
+
+% con $\epsilon$ como la energía, $\eta$ la entropía, $v$ el volumen, y $m_{1},m_{2}...m_{n}$ las cantidades de materia diferentes dentro de la mezcla, $P$ la presión, $T$ la temperatura y $M_{1}, M_{2}...M_{n}$ la energía interna de cada componente, la ecuación base se extendía hasta los $n$ componentes que estuvieran dentro de la mezcla, ésta ecuación fue la precursora en denotar la cantidad de energía disponible en una mezcla de componentes.
+
+% A su vez, Tait en 1868 y Lord Kelvin llegaron a conclusiones similares sin extender el concepto de la energía disponible. Duhem en 1904 y Caratheodory siguieron con el trabajo de la disponibilidad energética de Gibbs. Sin tener referencia directa de Gibbs Gouy en 1889 y Stodola llegaron al concepto de energía utilizable, definiéndolo como la entalpía menos el producto del cambio de entropía por la temperatura promedio del proceso.
+
+% Maxwell en 1871 y Lorenz en 1894, presentaron aplicaciones de la evaluación térmica en un proceso con las bases de la entropía, definiendo el concepto moderno de manera implícita y sin hacer una discusión más profunda. El trabajo de Gouy se vio reflejado en Jouget, que con su serie de libros de termodinámica aplicada, publicados en 1906, 1907 y 1909 utilizó el trabajo disipado como base para el análisis de procesos termodinámicos con uso de la segunda ley de la termodinámica. Goodenough en 1911, Baufre en 1925, Born en 1921, Darricus en 1930 y Lerberghe con Glansdorff continuaron con el trabajo, analizando el uso de la eficiencia termodinámica basada en la primera ley, para procesos de conversión de energía térmica en energía mecánica.
+
+% \begin{markdown}
+
+% * Keenan en 1932 denotó explícitamente el concepto de exergía llamándolo "disponibilidad de energía"
+% * Bošnjakovic en 1935 realizó un análisis de segunda ley mostrando el potencial de trabajo haciendo un análisis de segunda ley propio a los procesos involucrados
+% * Rosin y Fehling en 1929 publicaron un estudio de la exergía en combustibles fósiles.
+% * Emdem y Rant en 1938 y 1947, respectivamente, calcularon la exergía a un proceso químico (producción de refresco) con el uso de energía disponible en procesos de intercambio de calor.
+% * Obert y Birnie publicaron un reporte técnico acerca de las pérdidas de energía en la producción de electricidad mediante combustibles fósiles, haciendo énfasis en localizar los puntos críticos del proceso.
+% * En 1953 Rant sugirió el uso de la palabra exergía para referirse a la energía disponible en un proceso, con lo que se volvió la estructurar el concepto que había generado Gibbs.
+% * Bachr en 1962 definió en 1962 la exergía como "la porción de energía que es completamente convertible a otras formas de energía" generado la base de cómo se definirían los procesos en un futuro.
+% * Se estudiaron las capacidades teóricas del uso de la exergía a partir de 1970 con el trabajo de Reisad, siguiendo con una gran cantidad de científicos, como van Lier en 1978, Yoshida en 1980, Silver en 1981, por mencionar algunos, generaron investigaciones y desarrollo de modelos para explicar las ventajas teóricas de la exergía.
+% * Dehlin utilizó la exergía para explicar los puntos clave de la crisis energética que ocurrió en la década de 1970.
+% * Entre 1970 y 1980 se avanzó en el aspecto de la definición de la conservación de la energía, teniendo el trabajo de Gaggioli en 1977, Roberts en 1982 y Stepanov en 1984, el concepto de auditorías exergéticas, para analizar las posibles pérdidas de energía en el sector industrial.
+% * La eficiencia de los procesos utilizando exergía en aplicaciones industriales se retomaron con el trabajo colaborativo de Kotas en 1980, Alefeld en 1986 y Kotas en 1991, por mencionar algunos.
+% * Las herramientas de diseño industrial comenzaron a utilizar la exergía en al década de 1970, generando modelos numéricos para generar un cálculo más eficiente, con el trabajo de Gaggioli en 1964, Valero en 1987 y Maoirano en 2002, junto a otros investigadores.
+% * En la actualidad se siguen explorando los conceptos de la exergía mediante herramientas computacionales y de la mano de la tercera ley de la termodinámica para la generación de nuevos materiales y aumentar la eficiencia de procesos actuales, así como el aprovechamiento de fuentes de energía renovable.
+% \end{markdown}
+
+% \subsection{Análisis exergético}
+% 	Moran et al (2004) señalan que la cantidad de energía útil en un proceso es importante para poder cuantificar la utilidad de ciertos procesos, como ellos lo explican, haciendo alusión a un análisis de Exergía o análisis de disponibilidad. La exergía es definida como “el máximo trabajo teórico” que puede ser obtenido de un sistema en su interacción mutua hasta alcanzar el equilibrio termodinámico. Pese a ello, es necesario definir los aspectos fundamentales acerca de ella:
+% 	\begin{itemize}
+% 	\item El valor de la exergía no puede ser negativo
+% 	\item La exergía no se conserva, sino que se destruye a causa de las irreversibilidades
+% 	\item La exergía es una característica del conjunto que se forma por el sistema cerrado y su ambiente.
+% 	\item La exergía puede ser vista como el trabajo máximo que puede obtenerse de un sistema o como el trabajo mínimo que será necesario brindar para lograr que pase de un punto muerto a un objetivo previamente marcado.
+% 	\end{itemize}
+% 	Y aunque la exergía puede verse como una propiedad extensiva, y es especificada como unidad de masa, puede verse como
+% 	\begin{equation}
+% 		a_{2}-a_{1}=e_{2}-e_{1}+p_{0}\left(v_{2}-v_{1}\right)-T_{0}\left(s_{2}-s_{1}\right)
+% 	\end{equation}
+% 	Lo anterior aplica cuando se maneja en unidades específicas, de manera general se expresa de la siguiente manera
+% 	\begin{equation}
+% 		A_{2}-A_{1}=E_{2}-E_{1}+p_{0}\left(V_{2}-V_{1}\right)-T_{0}\left(S_{2}-S_{1}\right)
+% 	\end{equation}
+% 	Donde e, v y s son energía, volumen y entropía específicos, en la ecuación siguiente son propiedades generales, y con letras mayúsculas son propiedades absolutas, de las cuales,  se pueden ver también como la unión de la energía interna, la energía potencial y la energía cinética.
+% \subsubsection{Exergía destruida}
+% 	Cengel (2004) define el conjunto de irreversibilidades como la exergía destruida que a su vez puede verse como el potencial de trabajo desperdiciado, representando así la energía que puede convertirse en trabajo pero que no fue. Cuanto mayor sea la irreversibilidad, menor será el trabajo aprovechable.
+% \subsubsection{Balance exergético}
+% 	Morán () definen el balance de exergía como la combinación de un balance energético aunado a un análisis entrópico, visto como
+% 	\begin{equation}
+% 		E_{2}-E_{1}=\int_{1}^{2} \partial Q \, -W
+% 	\end{equation}
+% 	\begin{equation}
+% 		S_{2}-S_{1}=\int_{1}^{2} \left(\frac{\partial Q }{T}\right)_{f} +\sigma
+% 	\end{equation}
+% 	La primera etapa junta las ecuaciones mostradas con la ecuación (7.9), puede verse como
+% 	\begin{equation}
+% 		A_{2}-A_{1}=\int_{1}^{2} \left(\frac{T_{0}}{T_{1}}\right) \partial Q-\left[W-p_{0}\left(V_{2}-V_{1}\right)\right]-T_{0}\sigma
+% 	\end{equation}
+
+% 	Que puede interpretarse a partir de la transferencia de energía, posteriormente a partir de la ecuación
+% 	\begin{equation}
+% 		\left[\textrm {Transferencia de exergía que acompaña al calor}\right]=\int_{1}^{2} \left(\frac{T_{0}}{T_{1}}\right) \partial Q
+% 	\end{equation}
+% 	Y la siguiente parte puede interpretarse como
+% 	\begin{equation}
+% 		\left[\textrm{Tranferencia de exergía que acompaña trabajo}\right]=\left[W-p_{0}\left(V_{2}-V_{1}\right)\right]
+% 	\end{equation}
+% 	Y las irreversibilidades se denotan por
+% 	\begin{equation}
+% 		A_{d}=T_{0} \sigma
+% 	\end{equation}
+% 	De las cuales, se puede observar que es necesario aplicar un balance de exergía para analizar las condiciones del proceso, es decir
+% 	\begin{equation}
+% 		A_{d} \left\{ \begin{array}{ll}
+% 			\mbox{0 Proceso internamente irreversible} & \\
+% 			\mbox{0 Proceso internamente reversible} & \\
+% 			\mbox{0 Proceso imposible}
+% 			\end{array}
+% 	\end{equation}
+% 	La exergía no puede llegar a ser negativa ya que, por principio de segunda ley, la entropía en sentido negativo, del trabajo es imposible, no se puede generar más pérdidas que la energía neta aprovechable.
+	
+% \textcite{ccengel2006termodinamica} 
+
+
+\section{Entropía}
+En el siguiente capítulo se analizará el concepto de entropía y su uso a través de la historia
+
+\subsection{Histórico de la entropía}
+De acuerdo a lo explicado por Flores Camacho et al (2015), la entropía fue definida por Clausius en 1865 planteó una desigualdad del cociente conformado por el diferencial de calor o energía disponible en un proceso termodinámico y la temperatura en que se lleva a cabo, quedando de la siguiente manera:
+
+\begin{equation}
+    \int \frac{dQ}{T} = 0
+\end{equation}
+
+A partir de la cual, Clausius mostró que no es un proceso en el cual dicho cociente pueda ser negativo, ya que denotaría que se contó con energía que no existe, quedando de la siguiente manera:
+
+\begin{equation}
+    \int \frac{dQ}{T} \leq 0
+\end{equation}
+
+
+Dicha eccuación es conocida como la desigualdad de CLausius. En su trabajo, Clausius también trató de contestar la pregunta de cuánta energía 

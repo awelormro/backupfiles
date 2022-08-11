@@ -1,0 +1,141 @@
+\makeatletter
+\let\savedchap\@makechapterhead
+\def\@makechapterhead{\vspace*{-2.54cm}\savedchap}
+\chapter{Revisión del estado del arte}
+\let\@makechapterhead\savedchap
+\makeatletter
+% \chapter{Revisión del estado del arte}%
+\label{cha:Revisión del estado del a}
+\vspace{-36pt}
+Se realizará una revisión del estado del arte en el estado actual basándose en a revisión de las tecnologías más utilizadas para llevar a cabo la simulación de un ciclo Rankine, además de observar las variaciones técnicas para el desarrollo de un ciclo Rankine. Se observó que los sistemas desarrollados se tenía acceso a las fichas técnicas o se construyeron basándose directamente en los componentes de manera física, desarrollando el modelo para validar el comportamiento del ciclo.
+
+\textcite{SULAIMANALSAGRI2020113435} simuló una central fotovoltaica acoplada a un ciclo Rankine orgánico en MATLAB/Simulink usando como fuente la radiación difusa que proviene del cristal de panel solar, con agua como medio de transferencia de calor agua para comparar seis tipos de refrigerantes, que fueron HFO-1234yf, isobutano, R-152a, HFO-1233zd, R-513a y R-515a usando 5 estados termodinámicos para el balance, la simulación se hizo mediante análisis de energía de primera y segunda ley de la termodinámica mediante ecuaciones de entrada y salida de cada dispositivo, así como un balance de transferencia de calor para calcular la energía transferida mediante la radiación difusa. Después, Tabuló el rendimiento promedio de los sistemas y validó el modelo mediante error absoluto, distancia media cuadrática, error relativo y error relativo cuadrado. Posteriormente, generó el retorno de inversión y costo nivelado de la producción de energía además de realizar un análisis de comparación con consumo de gasolina para la producción de la misma cantidad de energía mediante combustibles fósiles, analizando el poder calorífico. Las principales conclusiones fueron:
+
+\begin{itemize}
+    \item Se comprobó que el rendimiento del ciclo incrementó conforme se elevaba la presión del condensador de 2000 kPa a 3200 kPa se aceleró el retorno de la inversión un 23.21\%.
+    \item El elevar la presión del condensador genera una caída del retorno de inversión, ya que es uno de los componentes de mayor precio, representando un 35\% de la inversión total en éste caso y al momento de seleccionar uno de mayor rango de operación, el costo se eleva en un orden exponencial, subiendo hasta un 125\% el costo total para poder elevar 1.2 MPa de presión de operación el precio se cuadruplicó en costos generales, enviando el retorno de inversión de los 3.8 años a los 5.9 años.
+    \item El análisis con respecto al menor requerimiento energético y el uso de combustible tuvo una diferencia mayor en el refrigerante HFO-1233zd, siendo de 22 kW de producción de energía contra 30 toneladas de combustible al año, la mayor producción de potencia la tuvo el isobutano, aunque también tuvo la mayor demanda de combustible, siendo de 120 toneladas/año.
+\end{itemize}
+
+
+\textcite{ALVI2020114780} simularon un ciclo Rankine orgánico programado en MATLAB/Simulink de montado bajo módulos fotovoltaicos con refrigerante R245a. Probaron de la configuración del sistema con arreglo solar directo e indirecto, con 13 y 15 estados termodinámicos respectivamente, contando en ambos casos con un sistema de evaporación, un arreglo de colectores solares, para el sistema indirecto se usó como agua como fluido auxiliar y se usó un sistema de almacenamiento térmico mediante modelos matemáticos analíticos. Usaron como variables las potencias eléctrica neta y térmica, sus eficiencias, las potencias específicas térmica y eléctrica, así como los registros de la radiación en el lugar, para iniciar un ciclo de iteraciones terminando el estudio al momento de tener una variación menor al $1x10^{-6}\%$.
+
+Los resultados fueron los siguientes:
+
+\begin{markdown}
+* Sin almacenamiento térmico, se obtuvo hasta un 17\% de disconfort debido a la disipación térmica en los horarios de mayor necesidad energética (6 a 9 horas y 19 a 21 horas promedio anual), se desperdició hasta un 39\% de la energía producida durante el día.
+* Para un almacenamiento como el mostrado en el sector doméstico, bastaría con tener un tanque de 10000 l de almacenamiento de agua caliente para satisfacer la demanda de energía térmica en los momentos de máxima demanda, que son el periodo de las 7 a las 9 horas, y la tarde noche, de las 19 a las 21 horas, horarios en los cuales la radiación no está presente o es muy baja.
+\end{markdown}
+
+\textcite{ARTECONI20192225} simularon una plante a pequeña de 2 kW de potencia eléctrica para suministro de electricidad y agua caliente en una casa, simulado con Innova Microsolar, apoyándose en fragmentos de código de MATLAB, simulando un sistema de 14 estados termodinámicos que consistían en un evaporador de 5 pasos, cuatro sistemas de calentamiento solar tipo "heat pipe", cuatro válvulas de cambio de flujo, tres válvulas mezcladoras y un sistema de bombeo mediante balances de entrada y salida para analizar el comportamiento de plantas a micro escala en el sector doméstico, usando las potencias eléctricas y térmicas de cada uno de los dispositivos, así como el tiempo de vida de la planta, se llegó a las siguientes conclusiones:
+
+\begin{markdown}
+* El almacenamiento térmico, dada la naturaleza de obtención de energía en un sistema que funciona mediante energía solar se vuelve un elemento fundamental como lo muestra el 17\% de disconfort debido a que la temperatura del agua no era la adecuada para cuando se requería, siendo un horario de 7 a 9 horas y 19 a 22 horas, las de mayor demanda de energía térmica y eléctrica.
+* Debido a que la simulación no incluía un sistema de almacenamiento, se desperdició un promedio de 39\% de energía térmica producida con respecto a la que se producía.
+\end{markdown}
+
+\textcite{CIOCCOLANTI20171629} generaron una simulación de un ciclo Rankine orgánico que produce 2 kW de de energía eléctrica simulado en Innova Microsolar y TRNSYS con seis estados termodinámicos que consisten en un circuito de entrada y salida de líquido térmico, un intercambiador de calor, una turbina y un circuito de control de temperatura, todos en algoritmo de entrada y salida. Generaron una variación en los rangos de temperatura y volumen del sistema de almacenamiento. Se obtuvo una eficiencia máxima del ciclo de 7.51\% en junio, mínima de 7.40\% en octubre y enero, promedio de 7.46\%, eficiencia completa del sistema máxima de 4.98\% en abril, mínima de 4.16\% en junio, promedio de 4.5\% y temperatura máxima del refrigerante de 244.44 °C en junio, mínima de 177.01 °C en diciembre. El caso con el tanque de almacenamiento de mayor volumen tuvo la eficiencia máxima del proceso en promedio, mostrando la importancia de un sistema de almacenamiento mostrando la necesidad de dimensionar correctamente el sistema de almacenamiento térmico acorde al tamaño del proyecto.
+
+\textcite{jimenez2021simulacion} simularon un ciclo Rankine de 700 MW con combustóleo como combustible, con recalentamiento y regeneración escrito en Visual Basic. Consideraron 18 estados termodinámicos, la caldera viéndola como un sistema en tres sobrecalentadores, dos recalentadores, un economizador y un domo, un sistema de turbina con recalentamiento y sustracción de vapor en dos puntos, dos bombas, un condensador y dos calentadores, uno abierto para mezcla de agua con vapor, y uno cerrado de calentamiento indirecto, se usaron las eficiencias isentrópicas y variaron el ciclo con cargas térmicas (cantidad de combusitble y aire introducida a la caldera), yendo en múltiplos de 25\%, quedando con el 100\%, 75\%, 50\% y 25\%, se obtuvo un rango de eficiencias del ciclo entre 30\% y 35.3\%. 
+
+Concluyeron con la validación del modelo al obtener resultados se apegan a los estándares de un sistema real. Las eficiencias altas se obtienen con los regímenes de carga térmica altos, entre el 75\% y 100\%, y se tienen eficiencias térmicas del ciclo menores al 30\% con cargas térmicas menores al 30\%. Usaron como variables la presión, temperatura, y entalpía de cada estado termodinámico, y las eficiencias isentrópicas de la turbina y sistemas de bombeo.
+
+
+\textcite{EPPINGER2021116650} modelaron un ciclo Rankine con bomba de calor reversible y sistema de almacenamiento térmico tipo batería de Carnot de 14.7 kW de potencia eléctrica neta y refrigerante R1233zd(E) como fluido de trabajo en MATLAB con 16 estados termodinámicos que consisten en el circuito de una bomba de calor, con dos intercambiadores internos y una bomba, un sistema de almacenamiento térmico con entrada y salida de fluido de trabajo, un sistema de evaporación, tres sistemas de bombeo y una turbina sin extracción. Usaron modelos determinísticos mediante modelos matemáticos analíticos, e incluyeron un modelado CAD del sistema. Usaron sistema de almacenamiento térmico para uso del calor a fluido constante, y aprovechamiento del refrigerante con baja entalpía de evaporación, además del coeficiente de operación o COP, para determinar la eficiencia del ciclo.
+
+Las variables utilizadas fueron la temperatura, presión, flujo másico, coeficientes de calor específico y entropía de cada estado termodinámico, además del volumen de tanque de almacenamiento, potencia eléctrica y mecánica de sistemas de bombeo, caída de presión de dispositivos.
+
+A partir de los resultados obtenidos en la simulación obtuvieron las siguientes conclusiones:
+
+\begin{markdown}
+* Necesidad de un fluido con temperatura de evaporación en el rango de los 90 a los 120 °C para utilizar apropiadamente el sistema debido a los rangos de operación utilizados por el evaporador.
+* Presión límite de 20 bar para seguridad del proceso.
+* Debido a la caída de presión en el fluido, es necesario tener circuitos de diferentes diámetros para evitar daños por fricción.
+\end{markdown}
+
+
+\textcite{GKIMISIS2020115523} simularon en MATLAB de ciclo Rankine sin sistema de bombeo de 1 kW de potencia térmica, en un modelo sin uso de sistema de bombeo, impulsando los fluidos mediante válvulas de expansión e inyectando fluido presurizado. Generaron un modelo experimental en pequeña escala para comparar los resultados obtenidos de la simulación, utilizaron 7 estados termodinámicos que fueron una turbina, un evaporador y una válvula solenoide que dirigía el sentido del fluido y procedieron a generar modelos analíticos. En el análisis de los intercambiadores de calor se utilizó la temperatura media logarítmica para generar los resultados. La fuente de calor en el modelo experimental fue de gases de escape. Los resultados comparados con respecto al modelo real obtenido fueron:
+
+\begin{markdown}
+* Error relativo del 5\%
+* Eficiencia promedio de ciclo del 4.8\%
+* Validaron el modelo a partir de los resultados previamente descritos, al tener concordancia, aunque también destacaron que hubieron ciertas fallas en el ensamblaje del sistema, debido a las fugas de refrigerante.
+\end{markdown}
+
+\textcite{KUBOTH201718} Simuló un ciclo Rankine orgánico que consiste en una bomba, un condensador, un recuperador, un evaporador y un expansor con gases de escape como fuente de calor, con ASPEN Plus V8.8 y refrigerante R365mfc como fluido de trabajo. Generó una base de resultados analíticos para los estados termodinámicos y esos resultados se usaron en un método iterativo con el error relativo comparado a la planta piloto como resultado, luego los resultados se usaron en un análisis de sensibilidad para posteriormente compararlo con el modelo de la planta piloto, arrojando las siguientes conclusiones:
+
+\begin{markdown}
+* Eficiencia del ciclo de 10.4\%, potencia generada de 968 W, recuperación de calor del 30\%, temperaturas de condensación en un rango de 45 °C a 60 °C.
+* Desviación estándar en el cálculo de entalpías de 1\% y de 1.4\% para entropías.
+\end{markdown}
+
+% \textcite{LI2018238} Simulación de un ciclo de trigeneración mediante un sistema de biomasa gasificada como fuente de calor con MATLAB. Calcularon 25 estados termodinámicos y se realizaron 4 corridas, variando el sistema de almacenamiento térmico y la carga de combustible con las siguientes observaciones:
+
+\begin{markdown}
+* Eficiencia máxima obtenida en la segunda corrida del 76.75\%, la cual incluye un sistema de almacenamiento térmico para distribuir la energía producida durante el día.
+* Mes de mayor generación de energía en agosto, pero menor  uso, el aire frío producido derivado de la trigeneración no se utilizó en su totalidad, con un 29\% de porcentaje de desuso debido a la poca necesidad del mismo.
+\end{markdown}
+
+Las variables utilizadas en su trabajo fueron Temperaturas, entalpías, entropías, presiones de cada estado termodinámico, coeficientes polinomiales de los coeficientes de calor específico para los compuestos de la biomasa gasificada, coeficientes de equilibrio para las ecuaciones de formación, poder calorífico superior e inferior de la biomasa en estado sólido y gaseoso.
+
+\textcite{MOHAMMADKHANI2019329} Se simuló un ciclo Rankine orgánico que aprovecha los gases de escape de un generador diésel de 24.93 kW de potencia instalada incluyendo el motor diésel y MATLAB como entorno de desarrollo. Utilizaron 17 estados termodinámicos usando un compresor, una turbina, un motor diésel, un sistema de enfriamiento para el motor diésel, dos turbinas, un condensador y evaporador para conectar los estados de alta y baja temperatura, dos evaporadores y dos sistemas de bombeo. Se usó un modelo matemático de cero dimensiones para simular el generador diésel para analizar la viabilidad de éste tipo de modelos en la simulación de sistemas de combustión. Se hicieron simulaciones térmicas y económicas para obtener la potencia neta producida, pérdidas térmicas, retorno de inversión y se verificó el modelo utilizando la desviación estándar de 5\%. Concluyeron que se consiguió un mejor resultado usando el refrigerante R143a,al ser el rango de operación del ciclo similar al rango de evaporación y sobrecalentamiento del refrigerante (inicio de sobrecalentamiento en la presión de operación a partir de los 110 °C) con 24.93 kW de potencia máxima alcanzable, siendo un 25\% de la potencia neta del motor, la eficiencia térmica fue del 20.63\%, el retorno de inversión es de 9.243 años, y el costo nivelado de la planta es de 4361 \$/kW. El pinch point tiene una relevancia importante en el desarrollo del sistema, siendo directamente proporcional al ahorro en costos operativos cuando subió 3°C el ahorro de costos operativos incrementó en promedio un 5.8\%.
+
+\textcite{MORADI201866} simularon un ciclo Rankine orgánico  con refrigerante R245fa como fluido de trabajo en un sistema de trigeneración con producción de vapor de agua a 170 °C y agua fría a 20 °C en MATLAB con una bomba de calor como fuente de calor. El sistema está compuesto por un evaporador de discos, un recuperador de calor, siendo 13 estados termodinámicos. La simulación se generó usando  correlaciones y fórmulas analíticas, para el recuperador de calor se usó el método de efectividad NTU. Se verificó el modelo mediante la desviación estándar y error relativo en cada estado termodinámico. Los resultados obtenidos fueron los siguientes:
+
+\begin{markdown}
+* La relación promedio de uso entre agua y refrigerante es de 1 a 2, por ende, requiriendo una mayor cantidad de agua en comparación al refrigerante, y dicha relación se iba haciendo más marcada conforme se incrementaba el flujo másico, teniendo la máxima diferencia en los 270 kg/h de flujo volumétrico de vapor, con 7800 kg/h de agua contra 3200 kg/h de refrigerante.
+* El flujo al incrementarse aumenta la eficiencia de la bomba, pasando de 32\% a 43.4\% conforme al incremento en el flujo volumétrico de refrigerante debido a que las variaciones del mismo afectan su eficiencia termodinámica.
+* La eficiencia total de ciclo también incrementó con respecto al flujo másico, pasando de 9.3\% a 9.6\% conforme se incrementaba el flujo másico.
+* Llegaron a la conclusión que la eficiencia de ciclo en los ciclos de potencia basados en refrigerantes como fluidos de trabajo comparten la característica de necesitar un flujo másico de refrigerante cercano a las condiciones de fábrica de la turbina y el condensador para aumentar la eficiencia del ciclo, siendo un rango de operación de más menos 10 °C las especificaciones de la turbina.
+\end{markdown}
+
+Las variables utilizadas en su desarrollo fueron presión máxima de entrada y salida, volumen teórico de compresión, promedio de compresión y refrigerante recomendado para uso del compresor, flujos másicos, entalpías y presiones de cada estado termodinámico, volumen específico de entradas y salidas del equipo de bombeo y compresor, eficiencias isentrópicas de compresor, turbina y bomba.
+
+\textcite{NI20171274} Simularon un ciclo Rankine orgánico con gases de escape de un generador diésel como fuente de calor con Dymola como entorno de desarrollo mediante cálculos analı́ticos y métodos iterativos para los intercambiadores de calor.
+
+
+Generaron dos modelos de simulación para comparar su acercamiento a un resultado real y el tiempo de ejecución, una considerando calentar directamente usando los gases de escape en un sistema de evaporación, y otro con aceite térmico como fuente de calor, el cual se calienta con los gases de escape.
+
+Las variables utilizadas fueron Potencia de salida, temperatura y flujo másico de los gases de escape y los sistemas de enfriamiento, coeficiente de transferencia de calor del aceite.
+
+Los resultados obtenidos de 5 corridas de cada simulación fueron:
+
+\begin{markdown}
+* La generación de energía descendió con el uso de aceite como conductor térmico, pasando de 22.23 kW usando los gases de escape directamente en el evaporador a 18.89 kW, el tiempo de operación alcance de la temperatura de operación pasó de 478s a 1500s aproximadamente, representando un decremento debido a las pérdidas térmicas del proceso indirecto, tales como transferencia de calor al medio ambiente y pérdidas por fricción.
+* El uso de sistemas de almacenamiento generó pérdidas de rendimiento en las 4 simulaciones de los dos estados, pasando con el gas directo en pérdidas de 7.83\%, 15.72\%, 28.22\% y 47.33\%, respectivamente, y en el sistema con aceite fue de 9.72\%, 14.8\%, 32.79\% y 43.05\%, respectivamente al necesitar transportar el medio de calor mediante un fluido auxiliar ocasionando pérdidas de rendimiento.
+\end{markdown}
+
+
+\textcite{PETROLLESE2020113307} Compararon las dos metodologías más comunes basados en una búsqueda documental previa realizada, para la simulación de ciclos Rankine orgánicos con energía solar como fuente de calor en MATLAB. Usaron una central de ciclo Rankine orgánico de 630 kWe como punto de comparación. Compararon el uso de métodos analı́ticos y métodos regresivos para la obtención de las temperaturas de operación, luego si no ajustaban a lo deseado, se aleatorizaban nuevos métodos de entrada hasta obtener el resultado deseado. Generaron la potencia neta alcanzable como parámetro de comparación mediante tablas ANOVA y la comparación del error absoluto para analizar la factibilidad de cada sistema.
+
+Las conclusiones a las que llegaron fueron:
+
+\begin{markdown}
+* En los métodos regresivos mediante correlaciones polinomiales se generaron errores relativos al momento de agregar eficiencias isentrópicas y éso generaba una variación en la estimación aproximado un promedio de 5\%, necesitando utilizar algoritmos sin iteración únicamente cambiando los valores utilizados como base, también conocidos como sistemas de fuerza bruta (inserción de números para obtener los valores directamente en lugar de realizar ecuaciones sin utilizar iteraciones) para el cálculo.
+* En el caso de los métodos analíticos el error absoluto generó una disrrupción del 5\% en algunos estudios como el cálculo de flujo en los sistemas de bombeo debido al flujo variable que manejan las bombas.
+* La potencia de la bomba fue el sistema que mayor error absoluto tuvo, debido a la tasa variable de flujo másico con un error absoluto del 17\% en el uso de métodos analı́ticos, la variable menos afectada fue el evaporador, que en el caso de los métodos analíticos tuvo un 3.5\% y de los métodos iterativos fue de 1.2\% causado por la variabilidad del flujo másico requerido.
+* El tiempo de ejecución de la simulación fue en promedio de 15 a 25 segundos para los métodos basados en constantes, y de 40 o más para los métodos regresivos, dada la naturaleza de buscar el menor porcentaje de variación en las iteraciones. En promedio se requieren 30 segundos para la ejecución de la simulación y errores absolutos de 2.5\% para los sistemas iterativos con un margen de variación de $2x10^{-5}$ 
+\end{markdown}
+
+Las variables utilizadas fueron la efectividad de cada componente, eficiencias termodinámicas y del ciclo para el sistema analítico y flujos másicos, además de las funciones polinomiales iniciales para los sistemas por correlación.
+
+\cite{PILI2019619} simularon un ciclo Rankine orgánico en MATLAB con dos metodologías, mediante un cálculo con cuasiestados que consisten en un cambio de variable que incluye propiedades del estado anterior y una aproximación dinámica mediante recursividades, en un ciclo Rankine con 8 estados termodinámicos. Calcularon la energía producida, las emisiones generadas y el costo nivelado. Compararon con Tablas ANOVA los resultados.
+
+Para el cálculo se utilizaron áreas aproximadas de intercambio de calor, longitud de tubería, poder calorífico de los gases de escape, entalpías, temperaturas, presiones entropías de cada estado termodinámico, costo de cada elemento, coeficiente de transferencia de calor inicial para cada intercambiador de calor, pinch point y approach point de los intercambiadores de calor y evaporador, poder calorífico inferior de los gases de escape.
+
+Concluyeron que el sistema de cuasiestados genera flexibilidad ante las tolerancias de los registros al tener como base un sistema 0D como base, ya que incluye valores iniciales que se pueden sustituir conforme se deje seguir corriendo la simulación. El sistema de control bajó la eficiencia de la simulación un 5\% al no conocerse el sistema de intercambiadores de calor y los cambios en la tubería pueden influir directamente en el resultado, debido a que los sistemas requerían mayor tiempo de ejecución para poder hallar las características de los intecambiadores que cumplieran con los requisitos para el ciclo. El tiempo de ejecución para los sistemas de cuasiestado genera un margen de error promedio de 1.1\% por cada 30 segundos menos que se deje ejecutando la herramienta, con lo que se puede concluir que entre más tiempo se deje trabajar la herramienta, se podrá obtener un resultado más aproximado al resultado de un sistema real.
+
+\textcite{SHALABY2022416} probaron un ciclo Rankine orgánico de baja potencia con tolueno, butano, hexano, refrigerantes R123, R11, R245ca y R245A como fluidos de trabajo con energía solar como fuente de calor usando ASPEN Plus como herramienta de trabajo para medir el rendimiento de cada uno de los fluidos con respecto a las condiciones de trabajo de flujo volumétrico de 3.5 $cm^{3}/seg$ con 1 kW de potencia nominal, 175 °C y una presión máxima de operación de 13.8 bar, mediante métodos recursivos propios de ASPEN para éste tipo de procesos, llegando a las siguiente conclusiones:
+
+\begin{markdown}
+* Todos los fluidos fueron aptos para el uso en pequeñas centrales de producción debido a sus características, aunque el que mejor rendimiento tuvo fue de 304 kW con el refrigerante R245fa, la eficiencia mıénima con el butano y el refrigerante R245ca, de 5.42\% y 3.28\% respectivamente.
+* El modelo preliminar se validó para usarlo en simulaciones de ciclos con potencia de 150 MW o más, convirtiéndose en una plantilla de trabajo, debido al error relativo obtenido, siendo menor al 0.003\%.
+\end{markdown}
+
+
+\textcite{valverdedesenvolvimento} desarrollaron una aplicación Android para cálculo de ciclo Rankine estándar compuesto por una caldera, una turbina, un condensador y una bomba, tomando en cuenta la eficiencia isentrópica de la turbina y la bomba, mediante un análisis de 4 estados termodinámicos calculados mediante modelos analíticos, usando las presiones y temperaturas, además de las eficiencias isentrópicas previamente mencionadas para entregar como resultado la potencia producida, eficiencia de ciclo y energía necesaria de entrada, para evitar el uso de poderes caloríficos de combustible y calcular la cantidad de combustible, generando la opción de poder comparar diferentes combustibles para llegar al objetivo. Compararon el modelo realizado con un cálculo de ciclo hecho a mano utilizando tablas de propiedades termodinámicas mediante error relativo, y como fue menor al $1x10^{-6} \%$ validaron el método de cálculo de la aplicación móvil, concluyendo que la portabilidad de aplicaciones similares son un área de oportunidad para el desarrollo de software.
+
+% desarrollaron una aplicación para teléfonos inteligentes escrita en Java para calcular ciclos aplicaciones de diseño en teléfonos inteligentes, usaron como base el ciclo Rankine estándar de 4 estados termodinámicos usando balances de primera ley como base del algoritmo de simulación, siendo caldera, turbina, condensador y bomba los elementos elegidos para el desarrollo de la programación. Desarrollaron una interfaz gráfica para pedir las temperaturas, presiones y eficiencias isentrópicas de la bomba y la turbina como datos de entrada, además del flujo másico del agua como variables de entrada, obteniendo un error relativo y absoluto comparado contra una base de cálculo hecha de manera analítica, y como dichas variables fueron menores al $1x10^{-6}$ validaron los el modelo de cálculo desarrollado.
+
+\textcite{XU2018776} simularon un ciclo Rankine orgánico para un generador lineal sin pistón usando gases de escape de un ciclo diésel como fuente de calor con 14 estados termodinámicos que consisten en el propio generador lineal, un sistema de evaporación, un expansor, un condensador y un sistema de bombeo, así como  el comportamiento del generador en MATLAB. Su objetivo era monitorear la relación de la carga térmica con respecto a la frecuencia de la energía eléctrica generada y las revoluciones del propio generador. Usaron los parámetros iniciales para el método de efectividad NTU, velocidad y revoluciones iniciales del generador, temperatura, presión, coeficientes de calor de cada estado termodinámico. Su conclusión fue la relación inversamente proporcional entre las condiciones de operación y las revoluciones del generador, teniendo la potencia pico se con un voltaje de 14.1 V y la potencia de 22 W, la presión de operación 1.9 bar, frecuencia de 1.5 Hz y 9 $\Omega$ y la potencia menor de 8.3 W con una frecuencia de 3.3 kHz.
+

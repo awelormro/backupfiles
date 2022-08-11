@@ -1,0 +1,182 @@
+{\parindent0pt \singlespace
+\begin{footnotesize}
+    
+\begin{longtable}[H]{p{1.5cm}p{0.5cm}p{1.6cm}p{0.4cm}p{1.7cm}p{1.6cm}p{6.5cm}}
+    \caption{Resumen de métodos del estado del arte}
+    \label{tab:tedoarte} \\
+    \hline 
+    Autores & Año & Ciclo(s) simulado(s) & ET & Algoritmo(s) utilizado(s) & Software/ Lenguaje & Observaciones \\
+    \hline
+    Alsagri et al & 2021 & CRO & 5 & Analítico & MATLAB  & $G_{difusa}$ validado con $e_{relativo},e_{absoluto}$ y $DMC$. Sacó ROI, $E_{producida}$ y CN. \\
+    Alvi et al & 2018 & CRO & 15 & Analítico, 5 corridas & MATLAB/ Simulink & Refrigerante R245a con $St_{directo}$ y $St_{indirecto}$ con agua para $IDC_{indirecto}$. \\
+    Arteconi et al & 2018 & CRO & 14 & Regresivo & Innova Microsolar & Verificar comportamiento del $St$ con y sin $AT$ para 14 departamentos. \\
+    Cioccolanti et al & 2021 & CRO & 6 & Regresivo & TRNSYS & $T_{operaci\acute{o}n}$ y $V_{AT}$ variables. \\
+    Jiménez y Durán & 2020 & CR & 18 & Analítico, 8 corridas & Visual Basic & CR de 700 MW con combustóleo como combustible variando $CT$ \\
+    Eppinger et al & 2021 & CRO con $BC_{reversible}$& 16 & Regresivo &  MATLAB/ Simulink & AT tipo Batería de Carnot de 14 kWe, usando refrigerante R1233zd(E), incluye CAD. \\
+    Gkimisis et al & 2019 & CR sin bombeo & 16 & Regresivo, $Sim_{num\acute{u}erica}$ &  MATLAB/ Simulink & Uso de gases de escape como fuente de calor. \\
+    Kuboth et al & 2017 & CRO & 5 & Regresivo & ASPEN Plus V8.8 & Refrigerante R365mfc con $45\degree C \leq T \geq 65 \degree C $. \\
+    Li et al & 2021 & STG & 25 & Regresivo, 4 corridas & MATLAB & Biomasa gasificada con $AT_{variable}$. \\
+    Mohammad- khani et al & 2021 & CRO & 17 & Regresivo, 4 corridas /fluido & MATLAB & Uso de modelos 0D,5 fluidos a comparar, uso de gases de salida de un ciclo diésel validado con $\sigma$ a 5\%. \\
+    Moradi et al & 2018 & CRO, STG & 13 & Regresivo & MATLAB & Uso de NTU, obteniendo vapor a 170°C y agua a 20°C, validado con $\sigma$ y $e_{relativo}$. \\
+    Ni et al & 2017 & CRO & 10 & Analítico, iterativo para IC & Dymola & Calentamiento con gases de escape directo e indirecto con aceite térmico.\\
+    Petrollese et al & 2021 & CRO & 12 & Analítico, iterativo & MATLAB/ Simulink & Comparación de $Sim_{CRO}$, central de 630 kWe, validado con tablas ANOVA y $e_{relativo}$ \\
+    Pili et al & 2019 & CRO & 8 & Iterativo & MATLAB & $Sim_{CRO}$ con cuasiestados y aproximación dimámica, sacaron $E_{producida}, \% CO_{2}$ y CN. \\
+    Shalaby et al & 2022 & CRO & 4 & Iterativo & ASPEN Plus & comparó tolueno, butano, hexano, refrigerantes R123, R11, R245ca y R245A. \\
+    Valverde et al & 2020 & CR & 4 & Analítico & Java & Desarrollo de aplicación Android. \\
+    Xu et al & 2018 & CRO & 14 & Iterativo & MATLAB/ Simulink & Uso de generador lineal sin pistón con gases de escape de ciclo diésel, relación de $Q_{entrada}$ y $rpm_{generador}$ \\
+    Wang et al & 2021 & STG & 15 & MATLAB/ Simulink & Analítico, iterativo, 2 corridas /estado & Cálculo analítico para calderas e iterativo para sistemas de intercambio de calor. \\
+    \hline
+\end{longtable}
+
+\pagebreak
+\begin{longtable}[H]{p{1.5cm}p{0.5cm}p{4cm}p{9.3cm}}
+    \caption{Resumen de variables usadas y conclusiones del estado del Arte}
+    \label{tab:tabedoarte1} \\
+        \hline
+        Autores & Año & Variables & Conclusiones\\
+        \hline
+        Alsagri et al & 2021 & 
+        mm, $T_{ebullici\acute{o}n}$, $P_{cr\acute{i}tica}, G_{sitio},T_{sitio}$ &
+        $P_{operaci\acute{o}n}\propto \frac{1}{ROI} \, \forall $ fluido simulado, $P_{tubina,ideal}=1.6P_{turbina}, \, \Delta ROI=-23.1\%$. \\
+        % Elevar la presión un 60\% acelera un 23.21\% el retorno de inversión del proyecto en promedio en las simuaciones con diferentes fluidos de operación. \\
+        Alvi et al & 2018 &
+        $\dot{m}_{agua}, \, \dot{m}_{refrigerante},\, h, \, P,$ $T$ de c/ET, $G_{sitio},\,\eta_{isent}$ & 
+        $St_{directo}: \,W_{max}=14 kW$, $W_{min}=12 kW$, $\eta=12\%$, $W_{noct}=4 kW, W_{noct} = W_{gen} \,con\,t>18h$, $St_{indirecto}: W_{max}=8 kW$, $W_{min}=3 kW$, $\eta=7.5\%$, $W_{noct}=0.5 kW$ \\
+        Arteconi et al & 2018 &
+        $W$ y $\eta$ eléctrica, térmica, $t_{vida,planta}$ & 
+        Si $AT \notin St, E_{disipada}=39\%E_{producida} \land \%_{disconfort}=17\%$ por efecto de la ley cero de la termodinámica. \\
+        Cioccolanti et al & 2021 & 
+        $W_{eléctrica}$, $W_{térmica}$, $V_{AT}, G_{sitio}$, $T_{operación}$ &
+        $\eta_{CRO,max}=7.51\%, T_{max,refri}=244.44 \degree C, \eta_{CRO,max}=4.98\%$, $\eta_{St,min}=7.40\%$ $\eta_{St,min}=4.16\%$ $\eta_{St,prom,a\tilde{n}o}=4.5\%$ $\eta_{CRO,prom,a\tilde{n}o}=7.46\%$, $T_{min,refri}=177.77$ °C \\
+        Jiménez y Durán & 2020 & 
+        $T$, $P$ de cada ET, $\eta_{is}$ de bomba y turbina &
+        Rango de $\eta_{ciclo}$ entre 30\% y 35.3\%, se obtienen con cargas térmicas entre el 70\% y 100\%. \\
+        Eppinger et al & 2021 &
+        $P,\, T, \, \dot{m}, \, c, \, s \, \forall$ ET, $V_{AT}, W_{el\acute{e}ctrica}$ y $W_{mec\acute{a}nica,bombas}$, $\Delta P$ &
+        $90 \degree C \leq T_{oper} \leq 120 \degree C, 80 \degree C \leq T_{evaporador} \leq 100 \degree C$, $P_{max,operaci\acute{o}n}=20 bar$ por seguridad, $t_{simulaci\acute{o}n}$ extendido por la baja $T$ y a la $TC_{exterior}$, necesidad de diferentes $\phi$ en el circuito para evitar $\Delta P$ y daños por fricción. \\
+        Gkimisis et al & 2019 &
+        $h,s,T,P \, \forall $ ET, $V_{admisi\acute{o}n}$, $A_{IC}$, PCS y PCI de gases &
+        $\eta_{CRO,promedio}= 4.8\%$ \\
+        Kuboth et al & 2017 & 
+        $T_{ent},T_{sal}, \, T_{senf}$ de refrigerante, $pp_{cond},pp_{reg}$. &
+        $\eta_{max,ciclo}=10.4\%$, $\eta_{min,ciclo}=8\%$, $W_{max,ciclo}=968 W$, $W_{min,ciclo}=150 W$ \\
+        Li et al & 2021 & 
+        $T_{entrada},T_{salida}$, $PC_{biomasa},\eta_{generador}$. &
+        $\eta_{max,ciclo}=76.75\%$ con AT, 35.7\% sin AT, $E_{prod,max}$ en agosto, por la necesidad $\%_{uso,aire,fr\acute{i}o}=45\%$. \\
+        Moha- mmadkhani et al & 2021 &
+        $T,P,\dot{m} $ por ET, $P_{me,sistema}$, fm de gases de escape, $PC_{di\acute{e}sel}$. & 
+        $pp \propto ROI_{proyecto}$, incrementando 2 °C de pp los costos de operación del proyecto disminuyen 5.8\%, $\eta_{max,ciclo}=24.93 kW$ de $W_{m\acute{a}x}$ con el refrigerante R143a. \\
+        Moradi et al & 2018 &
+        $P_{max,ent}$,$P_{max,sal}$ de refrigerante y agua, $\dot{m},h,P\,\forall$ ET. &
+        $m_{agua} \propto m_{refrigerante}$ $2 kg_{agua}\, \forall \, kg_{refrigerante}$ para la misma $E_{producida}$ por la capacidad de $TC_{refrigerante}$, $\eta_{max,ciclo}=9.6\%$, $\eta_{recuperador} \leq 65\%$ debido a las pérdidas. \\
+        Ni et al & 2017 &
+        $W_{sal}$, $T$ y $\dot{m}$ de los gases de escape, $k_{aceite}$. &
+        $W_{max,ciclo gas}=22.23 kW$ y $W_{max,ciclo aceite}=18.89 kW$, $t_{Temperatura}=478 s$ con GE, $t_{Temperatura}=1500s$ con aceite, $P\acute{e}rdidas_{sist}$ en el $St_{GE}$ de 7.83\%,  15.72\%, 28.22\% y 47.33\% con aceite fueron  9.72\%, 14.8\%, 32.79\% y 43.05\%. \\
+        Petrollese et al & 2021 &
+        $\epsilon,\eta$, y funciones polinomiales para cada ET , $T,P,s\,\forall$ cada ET.  &
+        Los Mreg necesitan más $t_{ejecuci\acute{o}n}\geq40s$, los MABC con $15s\leq t_{ejecuci\acute{o}n}\leq 25s$ tuvieron un $e_{abs,prom}= 9.5\%$, la bomba debido a $\dot{m}$ variable tienen un $e_{absoluto,promedio}= 17\%$. \\
+        Pili et al & 2019 &
+        $A_{IC}$, $l$ y $\phi$ de tubería, $h,s,P,CU\,\forall$ ET, $pp_{evap},pp_{IC},ap_{evap},ap_{IC}$, $PC_{GE}$. & 
+        El sistema de cuasiestados permite conocer las condiciones de $\dot{m}_{vapor}$, usa un sistema de 0D para empezar el cálculo. SC bajó $\eta_{ciclo}$ a 5\% al no considerar la $\Delta P$ por $l_{tuber\acute{i}a}$. Los sistemas con cuasiestados reducen $e_{abs}$ 1.1\% p/c 30 s de ejecución. \\
+        Shalaby et al & 2022 &
+        $T_{ebullici\acute{o}n}, T_{cr\acute{i}t}\,\forall$ refrigerante, $\dot{v}$, $W$ y $P_{nominal}\,\forall$ ET, $rpm_{turbina}$. & 
+        $W_{max}=304 kW $con butano y refrigerante R245fa, potencia y eficiencia mínimas con refrigerante R245ca, de 5.42\% y 3.28\%. \\
+        Valverde et al & 2020 &
+        $T,P$ de ET, $\eta_{isentr\acute{o}pica}$ de turbina y bomba. & 
+        Error relativo menor al 1\%. \\
+        Xu et al & 2018 & 
+        Coeficientes de $\epsilon$-NTU, $rpm_{gen}$, $T,P,c\, \forall$ ET. & 
+        $W_{ciclo} \propto \frac{1}{P_{salida,generador}}$, $W_{max}=22W$ con $P_{entrada}=1.9bar$, $F=1.5 Hz$ y una inductancia de 9 $\Omega$. \\
+        Wang et al & 2021 &
+        $T,P,h,s\,\forall$ ET, $\dot{m}$ y especificaciones $\forall$ tipo de colector solar. &
+        Autonomía de energía sin AT de 11 a 17 h; AT necesario para $t_{consumo,cr\acute{i}tico}$ de 7 a 10 h y 18 a 21 h; $40°C<T_{oper}<80°C,\, \therefore T_{refri} (140-230\degree C) \notin T_{oper}$. $W_{operación,max}$ del isobutano, butano e isopentano de 955 kW, 935 kW y 899 kW. \\
+        \hline
+
+\end{longtable}
+
+\end{footnotesize}
+}
+\doublespacing
+
+
+Las plataformas utilizadas en su mayoría fueron MATLAB/Simulink apareciendo en un 70.52\% de los proyectos revisados, dada su gama de componentes previamente configurados para la simulación de fenómenos físicos, junto a Innova Microsolar, que se utiliza en un 22.22\% de las ocasiones, son las plataformas en que mayormente se realizan éste tipo de proyectos, además de que los análisis que estudian los fenómenos mediante estudios de entrada contra salida de componentes representan un 55.56\% de los estudios consultados, entre otras razones como ya se explicó previamente, por su baja demanda de poder computacional y menor tiempo de ejecución.
+
+La variable más utilizada fue la temperatura, apareciendo en un 94.44\% de los estudios, seguida de la presión, que aparece en un 83.93\% de los estudios consultados, con lo que se puede observar que son variables de amplio uso. La información completa acerca de las variables se encuentra en la tabla ~\ref{tab:varedoarte}
+
+\begin{table}[H]
+    \centering
+    \caption{Análisis de las variables usadas en la bibliografía consultada}
+    \begin{tabular}{ccc}
+        \hline
+        Variable & Reportes & Porcentaje \\ 
+        \hline
+        Temperatura & 	17 & 	94.44\% \\
+        Presión & 	15 & 	83.33\% \\
+        Volumen & 	5 & 	27.77\% \\ 
+        Entalpía & 	7 & 	38.89\% \\ 
+        Entropía & 	7 & 	38.89\% \\ 
+        Eficiencia del condensador & 	2 & 	11.11\% \\ 
+        Eficiencia de la turbina & 	6 & 	33.33\% \\ 
+        Poder Calorífico & 	4 & 	22.22\% \\ 
+        Coeficientes de conducción & 	1 & 	5.56\% \\ 
+        Flujo volumétrico & 	3 & 	16.67\% \\ 
+        Velocidad & 	3 & 	16.67\% \\ 
+        Eficiencia de la bomba & 	4 & 	22.22\% \\ 
+        Eficiencia de la turbina & 	2 & 	11.11\% \\ 
+        Flujo másico & 	8 & 	44.44\% \\ 
+        Torque  & 	1 & 	5.56\% \\ 
+        Parámetros para cálculo de eficiencia NTU & 	1 & 	5.56\% \\ 
+        volumen & 	4 & 	22.22\% \\ 
+        RPM del generador & 	1 & 	5.56\% \\ 
+        Estudios simulados & 	18 & 	100\% \\ 
+        \hline
+
+    \label{tab:varedoarte} 
+    \end{tabular}
+\end{table}
+
+\vspace{12pt}
+Otro parámetro que fue importante fue contabilizar los softwares utilizados por los autores, teniendo como resultado la tabla \ref{tab:softedoarte} de la cual se observa que MATLAB aparece un 82.35\% de ocasiones como el software utilizado por los autores mostrando el amplio uso en el entorno académico de éste lenguaje, y un 70.59\% el uso de MATLAB/Simulink, siendo herramientas que se acoplan para el desarrollo de simulaciones termoeléctricas, además de poder agregar código para generar estudios económicos y ambientales que complementan los resultados obtenidos.
+
+    \begin{table}[H]
+        \centering
+        \caption{Software utilizado para la simulación} 
+        \label{tab:softedoarte}
+        \begin{tabular}{ccc}
+            \hline
+            Software & Veces utilizada & Porcentaje de uso \\
+            \hline
+            MATLAB & 14 & 82.35\% \\
+            MATLAB/Simulink & 12 & 70.59\% \\
+            ASPEN & 2 & 11.76\% \\
+            Innova Microsolar & 2 & 11.76\% \\
+            Software del autor & 2 & 11.76\% \\
+            Total & 17 & 100\% \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+
+Además de lo mostrado, los métodos más utilizados para el cálculo fueron los métodos usando un \% que se muestra en la tabla~\ref{tab:algoritmosusados}, por otra parte, el software  es menos utilizado con un \%. Para el presente trabajo se usaron 
+
+\begin{table}[H]
+    \centering
+    \caption{Algoritmos utilizados en la metodología.}
+    \label{tab:algoritmosusados}
+
+    \begin{tabular}{ccc}
+        \hline
+        Algoritmo & Veces utilizado & \% de uso \\
+        \hline
+        Analítico & 7 & 41.48\% \\
+        Regresivo & 8 & 47.06\% \\
+        Iterativo & 5 &  29.41\% \\
+        Total de proyectos & 17 & 100\% \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+Las siguientes secciones muestran la hipótesis, los objetivos y la metodología del presente trabajo, Para mostrar la pregunta de investigación, cómo se pretende dar una solución al problema de investigación, qué se busca como resultado y cómo se planteó dicha solución. 
+
+\pagebreak

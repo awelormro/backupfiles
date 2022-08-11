@@ -1,0 +1,174 @@
+% \vspace{-2.54cm}
+\section{Antecedentes}
+
+% \makeatletter
+% \let\savedchap\@makechapterhead
+% \def\@makechapterhead{\vspace*{-2.54cm}\savedchap}
+% \chapter{Antecedentes}
+% \let\@makechapterhead\savedchap
+% \makeatletter
+
+% \vspace{-35pt}
+
+% Para seguir abordando la problemática y la solución planteada en el presente trabajo, es necesario explicar conceptos previos. En la siguiente sección se analizarán conceptos básicos para la comprensión del presente trabajo, dividiendo los conceptos de la siguiente manera:
+ 
+En éste apartado se describen los conceptos necesarios para poder entender las secciones posteriores del presente trabajo, quedando divididos de la siguiente manera:
+
+
+\begin{itemize}
+    \item Conceptos referentes a la simulación: Para explicar los pasos seguidos en la metodología.
+    \item Conceptos referentes a la termodinámica: Para explicar el campo donde se quiere aplicar.
+    \item Conceptos referentes al lenguaje Python: Servirá para entender el lenguaje de programación seleccionado y sus ventajas.
+\end{itemize}
+
+\subsection{Sistema}
+
+Un sistema, al igual que una simulación no tiene un concepto universal, por lo que algunas definiciones del mismo son:
+
+\begin{itemize}
+    \item \textcite{ccengel2006termodinamica} lo perciben como "una cantidad de materia o una región en el espacio elegida para análisis".
+    \item \textcite{burghardt1984ingenieria} divisa un sistema como "una porción definida o limitada de materia o un espacio determinado y de magnitud fija".
+    \item \textcite{fritzonsim} ve un sistema como un objeto o una colección de objetos con propiedades que se desean estudiar.
+\end{itemize}
+
+
+%TODO Falta de profundización
+% Los tres autores concuerdan en que un sistema solamente representa una parte de alguno o varios objetos, y el hecho que se sepa cuánto es, qué representa o desde dónde y hasta dónde abarcan sus dimensiones. 
+
+De acuerdo a lo anterior, se puede concluir que un sistema representa una porción de uno o varios elementos o un espacio en específico, ésto sirve para entender la simulación, concepto que es abordado a continuación. 
+
+\subsection{Simulación}
+
+Existen varias maneras de definir la simulación, entre las cuales están las siguientes:
+
+\begin{itemize}
+    \item \textcite{silvasimulac} maneja el concepto de simulación como "la imitación de un sistema". Dicha imitación involucra el desarrollo de un historial teórico de características cuantificables en un sistema real. A su vez, afirma que no existe una definición universal de éste concepto, ya que sus áreas de aplicación solamente se delimitan por la imaginación del usuario. 
+    \item La definición utilizada por \textcite{averill1} dice que una simulación es el conjunto de operaciones necesarias para representar varios tipos de instalaciones o procesos del mundo real, las cuales llama sistemas. 
+    \item \textcite{fritzonsim} maneja la definición de simulación como un conjunto de experimentos para analizar las características de un sistema.
+\end{itemize}
+
+Las tres definiciones mostradas muestran la relación de un sistema existente en la vida real, y la búsqueda de poder representarlo mediante alguna técnica sin la necesidad de que esté construido.
+
+\subsection{Histórico de la simulación}
+
+En ésta sección se expondrá un breve repaso a la historia de la simulación, \textcite{goldsman1} lo exponen hasta 1981, dividiendo en tres grandes periodos: 
+
+% Hacer en tabla
+% TODO conectar el artículo de Roberts con el histórico previo
+\begin{enumerate}
+    \item La era pre-computacional: Siendo el periodo desde 1777 hasta 1945, iniciando con el desarrollo del método de Montecarlo, también llamado  `` el experimento de las agujas '' consistente en tirar agujas sobre un plano con líneas puestas a la misma distancia una de la otra para estimar el valor de $\pi$. Laplace en 1812 generó una solución corregida en 1821. Un siglo después, Gosset y Guinness utilizaron el método para control de calidad en una cervecera, generando las bases de lo que hoy se conoce como la distribución t-student.
+    \item El periodo Formativo: Consta de 1945 a 1970, da inicio con el desarrollo de las primeras computadoras de propósito general, conocidas como ENIAC a mediados de 1940, mejoramiento del método de Montecarlo, desarrollo del programa GSP, el primer simulador de propósito general durante la década de 1960, el inicio de SIMSCRIPT en 1963 basado en FORTRAN, la creación de la conferencia invernal de simulación en 1967 y el desarrollo del paradigma de simulación mostrado por Conway, basado en métodos estadísticos y ordenados por diferentes procesos de selección acorde al problema, metodología aplicada hasta la actualidad.
+    \item La era de la expansión: Consiste desde la época de 1970 hasta 1981, en la que la programación orientada a objetos complementó las metodologías, al poder separar los elementos simulados, y el avance de softwares para simulación, teniendo el lanzamiento de GASP IV, SIMSCRIPT II.5, SIMAN, SLAM, entre otros.
+\end{enumerate}
+
+\textcite{roberts1} señalan que hasta el fin de la década de 1970 los resultados eran únicamente reportes textuales, aunque no señalan que es una era diferente a las marcadas por \textcite{goldsman1}, marcan como un antecedente importante el poder mostrar los resultados usando animaciones, imágenes y recursos gráficos, ganando auge durante la década de 1980, además de incorporar las simulaciones desarrolladas con múltiples paradigmas, entendiendo un paradigma como una manera de cálculo o desarrollo del sistema a simular. A partir de la década de 1990, las animaciones tridimensionales comenzaron a incluirse en softwares como AutoMod, Taylor ED y Simple++, siendo una característica ofrecida vigente hasta la actualidad.
+
+Los puntos principales se incluyeron en la figura~\ref{fig:litiem1}
+
+\input{partestex/lineatiempo1.tex}
+
+% \textcite{goldsman1} 
+
+% OK
+\subsection{Tipos de simulación}
+
+\textcite{sachin1} genera una clasificación de los tipos de simulación, dividiéndolos principalmente en dos tipos: La simulación determinística y la estocástica. La simulación determinística es aquella que tiene valores fijos y funciones objetivo en las que se basa, y la simulación estocástica mediante valores y valores aleatorios busca generar los valores esperados o la función respuesta sea el caso, la clasificación completa es la siguiente:
+
+\begin{itemize}
+    \item Simulación determinística estática: No existen variables aleatorias, \( t \) no es parámetro.
+    \item Simulación determinística dinámica continua: No existen variables aleatorias, \( t \) es parámetro en forma continua.
+    \item Simulación determinística discreta: No existen variables aleatorias \( t \) es parámetro en forma discreta.
+    \item Simulación estocástica estática: Existen variables aleatorias, \( t \) no es parámetro.
+    \item Simulación estocástica dinámica: Existen variables aleatorias, \( t \) es parámetro en forma continua. 
+    \item Simulación estocástica dinámica continua: Existen variables aleatorias, \( t \) es parámetro en forma continua.  
+    \item Simulación estocástica dinámica discreta: Existen variables aleatorias, \( t \) es parámetro en forma discreta. 
+\end{itemize}
+
+
+
+Luego de revisar los conceptos con respecto a la simulación, sus tipos y antecedentes, es necesario hablar de los conceptos referentes a la termodinámica, la base teórica de los procesos que se pretenden simular.
+
+\subsection{Propiedades Termodinámicas}
+
+En la siguiente sección se hablará de las propiedades termodinámicas, \textcite{ccengel2006termodinamica} se refieren a ellas como el conjunto de aspectos medibles de la materia, además, \textcite{shapirotermo} definen un estado como "el conjunto de propiedades" de un sistema, además, dividen a las propiedades en dos tipos: Propiedades extensivas y propiedades intensivas, siendo las extensivas las que dependen de la cantidad de materia y las intensivas aquellas que no dependen de la misma, en la tabla~\ref{tab:propied12} se describen los tipos de propiedades 
+
+\begin{table}[H]
+    \centering
+    \caption{Clasificación de propiedades termodinámicas. \\ Tomado de \textcite{ccengel2006termodinamica}}
+    \label{tab:propied12}
+
+    \begin{tabular}{cc}
+      \hline
+      Propiedades Extensivas       & Propiedades intensivas \\
+      \hline
+      $H,V,U,G,A,C_p,C_v,S,m,\dot{m},\dot{V}$ & $h,v,u,g,a,T,P$ \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+
+\subsection{Proceso}
+
+Al igual que en el caso de la simulación, no existe una definición única para proceso, algunas dadas por los autores son:
+
+\begin{itemize}
+    \item \textcite{ccengel2006termodinamica} lo usa como "cualquier cambio de un estado de equilibrio a otro experimentado por un sistema".
+    \item \textcite{burghardt1984ingenieria} afirma que "es simplemente un cambio de estado de un sistema".
+    \item \textcite{rajput2009engineering} lo percibe como una cantidad de materia o una región delimitada de espacio.
+\end{itemize}
+
+\vspace{-36pt}
+\begin{center}
+    \begin{figure}[H]
+    \centering
+    \includegraphics{descripciondeunproceso.png}
+    \centering
+    \caption{Descripción de un proceso. \\ Tomado de \protect\textcite{ccengel2006termodinamica}}
+    \label{fig:proc1}
+\end{figure}
+\end{center}
+
+\vspace{-42pt}
+Lo previamente mencionado se puede ver gráficamente en la figura~\ref{fig:proc1}, los tres autores coinciden que en los procesos termodinámicos pueden clasificarse los cambios manteniendo una propiedad termodinámica constante, mostrados en la tabla~\ref{tab:proctermo1}.
+
+\begin{table}[H]
+    % \footnotesize
+    \centering
+    \caption{Tipos de procesos termodinámicos. \\ Tomado de \textcite{ccengel2006termodinamica}, \textcite{rajput2009engineering} y \textcite{burghardt1984ingenieria}}
+    \label{tab:proctermo1}
+
+    \begin{tabular}{cp{7cm}}
+        \hline
+        Proceso & Definición \\ 
+        \hline
+        Isotérmico & \( T \) constante \\ 
+        Isobárico & \( P \) constante \\ 
+        Isocórico &  \( V \) constante \\ 
+        Isentrópico & \( S,\,s \) constante \\ 
+        Isoentálpico & \( H,\,h \) constante \\ 
+        Politrópico & Procesos reales de compresión y expansión de gases, \( PV^{n}=C \) con \( n \) y \( C \) constantes  \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Ciclo}
+
+Los ciclos son la parte principal de estudio, teniendo varias definiciones como las siguientes:
+
+\begin{itemize}
+    \item \textcite{rajput2009engineering} considera que un ciclo es un proceso o serie de procesos que tienen como final las mismas propiedades que al principio.
+    \item \textcite{ccengel2006termodinamica} explican que ``un sistema ha experimentado un ciclo si regresa a su estado inicial al final del proceso''.
+    \item \textcite{shapirotermo} manejan la definición como ``una secuencia de procesos que empiezan y terminan en el mismo estado''.
+\end{itemize}
+
+Los tres autores concluyen que un ciclo comienza y termina en el mismo conjunto de propiedades termodinámicas, gráficamente en un diagrama de proceso se ve como en la figura~\ref{fig:ciclo1}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{diagramaciclo.png}
+    \caption{Diagrama de un ciclo. \\ Tomado de \textcite{rajput2009engineering}}
+    \label{fig:ciclo1}
+\end{figure}
+
+

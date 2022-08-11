@@ -1,0 +1,36 @@
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape, node distance=1.5cm]
+    \node (b1) [startstop] {\footnotesize{ \textcircled{1} Búsqueda documental}};
+  \node (b2) [startstop, below of=b1] {\footnotesize{ \textcircled{2}Selección de variables y estados termodinámicos}};
+  \node (b3) [startstop, below of=b2] {\footnotesize{\textcircled{3} Generación de algoritmos}};
+  \node (b4) [startstop, below of=b3] {\footnotesize{\textcircled{4} Programación preliminar de algoritmos}};
+  \node (b5) [startstop, below of=b4, xshift=3cm] { \footnotesize{\textcircled{5} Desarrollo de plantilla de reportes técnicos}};
+  \node (b6) [startstop, below of=b4, xshift=-3cm] { \footnotesize {\textcircled{6} Desarrollo de interfaz gráfica}};
+  \node (b7) [startstop, below of=b6, xshift=3cm, yshift=-1cm] { \footnotesize{\textcircled{7} Desarrollo de pruebas}};
+  \node (b8) [startstop, below of=b7] { \footnotesize{\textcircled{8} Análisis estadístico}}; 
+  \node (b9) [startstop, below of=b8] { \footnotesize{\textcircled{9} Discusión de resultados}};
+  \node (b10) [startstop, below of=b9] { \footnotesize{\textcircled{10} Conclusiones}};
+  \node [inner sep=0, minimum size=0, below of=b6, xshift=3cm,yshift=.2cm] (k) {};
+  \node [inner sep=0, minimum size=0, left of=b7, xshift=-4.5cm] (j) {};
+  \draw [arrow] (b1) -- (b2);
+  \draw [arrow] (b2) -- (b3);  
+  \draw [arrow] (b3) -- (b4);  
+  \draw [arrow] (b4) |- (b5);
+  \draw [arrow] (b4) |- (b6);
+  \draw  (b6) |- (k);
+  \draw  (b5) |- (k);
+  \draw [arrow] (k) -- (b7);
+  \draw [arrow] (b7) -- (b8);
+  \draw  (b7) -- (j);
+  \draw [arrow] (j) |- (b3);
+  \draw [arrow] (b8) -- (b9);
+  \draw [arrow] (b9) -- (b10);
+
+
+\end{tikzpicture}
+\end{center}
+\caption{Diagrama de la metodología}
+\label{fig:dia2}
+\end{figure}
+
